@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B84DFECA1BD9664400E2C5A6 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEC91BD9664400E2C5A6 /* Secret.swift */; };
+		B87192241BD94494005A648C /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87192231BD94494005A648C /* ItemTableViewController.swift */; };
 		B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF14F1BD59780002F6268 /* AppDelegate.swift */; };
-		B8BDF1521BD59780002F6268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF1511BD59780002F6268 /* ViewController.swift */; };
 		B8BDF1551BD59780002F6268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1531BD59780002F6268 /* Main.storyboard */; };
 		B8BDF1571BD59780002F6268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1561BD59780002F6268 /* Assets.xcassets */; };
 		B8BDF15A1BD59780002F6268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */; };
+		B8BDF1681BD5C819002F6268 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF1671BD5C819002F6268 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B84DFEC91BD9664400E2C5A6 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		B87192231BD94494005A648C /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		B8BDF14C1BD59780002F6268 /* glitter-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "glitter-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BDF14F1BD59780002F6268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8BDF1511BD59780002F6268 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8BDF1541BD59780002F6268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8BDF1561BD59780002F6268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8BDF1591BD59780002F6268 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8BDF15B1BD59780002F6268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8BDF1671BD5C819002F6268 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,7 @@
 		B8BDF1431BD59780002F6268 = {
 			isa = PBXGroup;
 			children = (
+				B84DFEC91BD9664400E2C5A6 /* Secret.swift */,
 				B8BDF14E1BD59780002F6268 /* glitter-mobile */,
 				B8BDF14D1BD59780002F6268 /* Products */,
 			);
@@ -55,8 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				B8BDF14F1BD59780002F6268 /* AppDelegate.swift */,
-				B8BDF1511BD59780002F6268 /* ViewController.swift */,
 				B8BDF1531BD59780002F6268 /* Main.storyboard */,
+				B8BDF1671BD5C819002F6268 /* LoginViewController.swift */,
+				B87192231BD94494005A648C /* ItemTableViewController.swift */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
 				B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */,
 				B8BDF15B1BD59780002F6268 /* Info.plist */,
@@ -134,8 +140,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8BDF1521BD59780002F6268 /* ViewController.swift in Sources */,
+				B84DFECA1BD9664400E2C5A6 /* Secret.swift in Sources */,
 				B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */,
+				B87192241BD94494005A648C /* ItemTableViewController.swift in Sources */,
+				B8BDF1681BD5C819002F6268 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +291,7 @@
 				B8BDF1601BD59780002F6268 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
