@@ -6,13 +6,13 @@ class ItemDetailViewController: UIViewController {
     let itemsString = "v1/items"
     let accessToken = Secret().value
     var session: NSURLSession!
-    var glitterCount = 0
     
     @IBOutlet weak var glitterButton: UIButton!
     @IBOutlet weak var debugTextLabel: UILabel!
     @IBOutlet weak var glitterCountLabel: UILabel!
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var authorName: UILabel!
+    @IBOutlet weak var createdAt: UILabel!
     @IBOutlet weak var bubbleView: UIView!
 
     override func viewWillAppear(animated: Bool) {
@@ -25,13 +25,23 @@ class ItemDetailViewController: UIViewController {
         view.backgroundColor = UIColor.bubblegumPinkColor()
         textField?.text = item!.text
         textField?.font?.fontWithSize(21.0)
-        authorName?.text = "- \(item!.user)"
+        authorName?.text = "\(item!.user)"
         authorName?.textColor = UIColor.magentaPinkColor()
         textField?.textColor = UIColor.flamingoPinkColor()
         glitterCountLabel?.textColor = UIColor.magentaPinkColor()
         glitterCountLabel?.text = "glitter: \(item!.glitter_count!)"
+        createdAt?.text = formatDate(item!.created_at)
+        createdAt?.textColor = UIColor.magentaPinkColor()
         bubbleView.layer.backgroundColor = UIColor.barelyPinkColor().CGColor
         bubbleView.layer.cornerRadius = 15
+    }
+    
+    func formatDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        formatter.dateStyle = .MediumStyle
+        let stringValue = formatter.stringFromDate(date)
+        return stringValue
     }
     
     @IBAction func glitterItem() {
