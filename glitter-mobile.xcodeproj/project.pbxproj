@@ -14,8 +14,8 @@
 		B84DFEDC1BD9B44100E2C5A6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */; };
 		B84DFEDE1BD9BCDB00E2C5A6 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDD1BD9BCDB00E2C5A6 /* ItemsViewController.swift */; };
 		B84DFEE41BDA7B4400E2C5A6 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */; };
-		B84DFEE81BDAA4D500E2C5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DFEE71BDAA4D500E2C5A6 /* Main.storyboard */; };
 		B84DFEEA1BDAA8A500E2C5A6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */; };
+		B84DFEEC1BDAC7F900E2C5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */; };
 		B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF14F1BD59780002F6268 /* AppDelegate.swift */; };
 		B8BDF1571BD59780002F6268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1561BD59780002F6268 /* Assets.xcassets */; };
 		B8BDF15A1BD59780002F6268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */; };
@@ -30,8 +30,8 @@
 		B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		B84DFEDD1BD9BCDB00E2C5A6 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
-		B84DFEE71BDAA4D500E2C5A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B8BDF14C1BD59780002F6268 /* glitter-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "glitter-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BDF14F1BD59780002F6268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8BDF1561BD59780002F6268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 				B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */,
 				B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */,
 				B84DFED71BD98AC400E2C5A6 /* Item.swift */,
-				B84DFEE71BDAA4D500E2C5A6 /* Main.storyboard */,
 				B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */,
+				B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
 				B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */,
 				B8BDF15B1BD59780002F6268 /* Info.plist */,
@@ -145,7 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84DFEE81BDAA4D500E2C5A6 /* Main.storyboard in Resources */,
+				B84DFEEC1BDAC7F900E2C5A6 /* Main.storyboard in Resources */,
 				B8BDF15A1BD59780002F6268 /* LaunchScreen.storyboard in Resources */,
 				B8BDF1571BD59780002F6268 /* Assets.xcassets in Resources */,
 			);
