@@ -8,23 +8,20 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
     var items: [Item] = []
     
     @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         session = NSURLSession.sharedSession()
         if let api_token = KeychainWrapper.stringForKey("api_token") {
-            getItems()
+            getItems(api_token)
         } else {
             navigateToLogin()
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         itemsTableView.estimatedRowHeight = 70.0
         itemsTableView.rowHeight = UITableViewAutomaticDimension
+        displayTableView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,49 +45,47 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cellReuseIdentifier = "ItemTableViewCell"
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as! ItemTableViewCell!
-        print(cell)
+
         // Set cell defaults
         cell.textField?.text = item.text
-        cell.authorName?.text = item.user
+        cell.authorName?.text = "- \(item.user)"
+        cell.textField?.textColor = UIColor.whiteColor()
         cell.glitterCount?.text = "glitter: \(item.glitter_count!)"
-        
-        
+        cell.bubbleView.layer.cornerRadius = 15
         return cell
     }
     
-    func getItems() {
-        if let api_token = KeychainWrapper.stringForKey("api_token") {
-            // Build the URL
-            let urlString = baseURLSecureString + itemsString
-            let url = NSURL(string: urlString)!
-            var params: [String: AnyObject] {
-                return ["api_token": "\(api_token)"]
-            }
-            
-            // Configure the request
-            let request = NSMutableURLRequest(URL: url)
-            request.HTTPMethod = "GET"
-            request.setValue(accessToken, forHTTPHeaderField: "X-ACCESS-TOKEN")
-            request.setValue(api_token, forHTTPHeaderField: "X-API-TOKEN")
-            
-            // Make the request
-            let task = session.dataTaskWithRequest(request) { data, response, downloadError in
-                
-                if let error = downloadError {
-                    print("Could not complete the request \(error)")
-                } else {
-                    // Parse the data
-                    do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
-                        // Use the data
-                        self.items = Item.itemsFromResults(parsedResult)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.itemsTableView.reloadData()
-                        }
-                    } catch {}
-                }
-            }
-            task.resume()
+    func getItems(api_token: String) {
+        // Build the URL
+        let urlString = baseURLSecureString + itemsString
+        let url = NSURL(string: urlString)!
+        var params: [String: AnyObject] {
+            return ["api_token": "\(api_token)"]
         }
+        
+        // Configure the request
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "GET"
+        request.setValue(accessToken, forHTTPHeaderField: "X-ACCESS-TOKEN")
+        request.setValue(api_token, forHTTPHeaderField: "X-API-TOKEN")
+        
+        // Make the request
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            
+            if let error = downloadError {
+                print("Could not complete the request \(error)")
+            } else {
+                // Parse the data
+                do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
+                    // Use the data
+                    self.items = Item.itemsFromResults(parsedResult)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.itemsTableView.reloadData()
+                    }
+                } catch {}
+            }
+        }
+        task.resume()
     }
     
     //MARK: - Navigation
@@ -98,6 +93,10 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func navigateToLogin() {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
         self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func displayTableView() {
+        activityIndicator.stopAnimating()
     }
     
     @IBAction func logOut() {

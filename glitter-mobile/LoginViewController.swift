@@ -100,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
             self.debugTextLabel.text = ""
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemsViewController") as! UIViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemsViewController") 
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }
