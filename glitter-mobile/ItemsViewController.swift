@@ -53,10 +53,15 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as! ItemTableViewCell!
 
         // Set cell defaults
+        cell.contentView.backgroundColor = UIColor.bubblegumPinkColor()
         cell.textField?.text = item.text
+        cell.textField?.font?.fontWithSize(21.0)
         cell.authorName?.text = "- \(item.user)"
-        cell.textField?.textColor = UIColor.whiteColor()
+        cell.authorName?.textColor = UIColor.magentaPinkColor()
+        cell.textField?.textColor = UIColor.flamingoPinkColor()
+        cell.glitterCount?.textColor = UIColor.magentaPinkColor()
         cell.glitterCount?.text = "glitter: \(item.glitter_count!)"
+        cell.bubbleView.layer.backgroundColor = UIColor.barelyPinkColor().CGColor
         cell.bubbleView.layer.cornerRadius = 15
         return cell
     }
