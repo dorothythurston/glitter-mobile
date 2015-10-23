@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B84DFECA1BD9664400E2C5A6 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEC91BD9664400E2C5A6 /* Secret.swift */; };
+		B84DFED61BD97DEF00E2C5A6 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */; };
+		B84DFED81BD98AC400E2C5A6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFED71BD98AC400E2C5A6 /* Item.swift */; };
+		B84DFEDA1BD9ABCE00E2C5A6 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */; };
+		B84DFEDC1BD9B44100E2C5A6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */; };
 		B87192241BD94494005A648C /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87192231BD94494005A648C /* ItemTableViewController.swift */; };
 		B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF14F1BD59780002F6268 /* AppDelegate.swift */; };
 		B8BDF1551BD59780002F6268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1531BD59780002F6268 /* Main.storyboard */; };
@@ -18,6 +22,10 @@
 
 /* Begin PBXFileReference section */
 		B84DFEC91BD9664400E2C5A6 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		B84DFED71BD98AC400E2C5A6 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		B87192231BD94494005A648C /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		B8BDF14C1BD59780002F6268 /* glitter-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "glitter-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BDF14F1BD59780002F6268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,10 +68,14 @@
 			isa = PBXGroup;
 			children = (
 				B8BDF14F1BD59780002F6268 /* AppDelegate.swift */,
-				B8BDF1531BD59780002F6268 /* Main.storyboard */,
 				B8BDF1671BD5C819002F6268 /* LoginViewController.swift */,
+				B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */,
 				B87192231BD94494005A648C /* ItemTableViewController.swift */,
+				B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */,
+				B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */,
+				B84DFED71BD98AC400E2C5A6 /* Item.swift */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
+				B8BDF1531BD59780002F6268 /* Main.storyboard */,
 				B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */,
 				B8BDF15B1BD59780002F6268 /* Info.plist */,
 			);
@@ -142,8 +154,12 @@
 			files = (
 				B84DFECA1BD9664400E2C5A6 /* Secret.swift in Sources */,
 				B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */,
+				B84DFEDC1BD9B44100E2C5A6 /* ItemDetailViewController.swift in Sources */,
 				B87192241BD94494005A648C /* ItemTableViewController.swift in Sources */,
 				B8BDF1681BD5C819002F6268 /* LoginViewController.swift in Sources */,
+				B84DFED81BD98AC400E2C5A6 /* Item.swift in Sources */,
+				B84DFEDA1BD9ABCE00E2C5A6 /* ItemTableViewCell.swift in Sources */,
+				B84DFED61BD97DEF00E2C5A6 /* KeychainWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

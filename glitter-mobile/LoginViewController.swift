@@ -9,12 +9,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let baseURLSecureString = "http://glitter-app.herokuapp.com/"
     let authenticationValidationString = "v1/session"
     let accessToken = Secret().value
-    let defaults = NSUserDefaults.standardUserDefaults()
     var username = String?()
     var session: NSURLSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO: write a better way of checking for current user
+        if let api_token = KeychainWrapper.stringForKey("api_token") {
+            completeLogin()
+        }
         session = NSURLSession.sharedSession()
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,7 +46,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Build the URL
         let urlString = baseURLSecureString + authenticationValidationString
         let url = NSURL(string: urlString)!
-        let accessToken = "supersecret"
         var params: [String: AnyObject] {
             return ["session": ["email": username, "password": password]]
         }
@@ -71,8 +73,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     // Parse the data
                     do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                         // Use the data
+                        print("Login data:\(parsedResult)")
                         if let current_user = parsedResult["current_user"] {
-                            print(current_user)
+                            if let id = current_user["id"] {
+                                self.setKeychainValue(id!, keyName: "id")
+                            }
+                            if let email = current_user["email"] {
+                                self.setKeychainValue(email!, keyName: "email")
+                            }
+                            if let api_token = current_user["api_token"] {
+                                self.setKeychainValue(api_token!, keyName: "api_token")
+                            }
                             self.completeLogin()
                         } else {
                             dispatch_async(dispatch_get_main_queue()) {
@@ -94,6 +105,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemTableViewController") as! UITableViewController
             self.presentViewController(controller, animated: true, completion: nil)
         })
+    }
+    
+    func setKeychainValue(value: AnyObject, keyName: String) {
+        let escapedValue = "\(value)"
+        KeychainWrapper.setString(escapedValue, forKey: keyName)
     }
 }
 
