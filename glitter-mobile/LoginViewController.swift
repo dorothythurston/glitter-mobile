@@ -73,7 +73,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     // Parse the data
                     do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                         // Use the data
-                        print("Login data:\(parsedResult)")
                         if let current_user = parsedResult["current_user"] {
                             if let id = current_user["id"] {
                                 self.setKeychainValue(id!, keyName: "id")
@@ -89,7 +88,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             dispatch_async(dispatch_get_main_queue()) {
                                 self.debugTextLabel.text = "Incorrect login information"
                             }
-                            print("\(parsedResult)")
                         }
                     } catch {}
                 }
@@ -102,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
             self.debugTextLabel.text = ""
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemTableViewController") as! UITableViewController
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemsViewController") as! UIViewController
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }
