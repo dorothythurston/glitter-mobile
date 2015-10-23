@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="30" id="QLF-Qm-gek"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Mmq-T6-VD1"/>
@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="30" id="rZl-sS-Tyx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Jbd-eX-60H"/>
@@ -209,6 +209,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="continueButton" destination="yfh-uf-eaN" id="Wh5-Vd-dFt"/>
                         <outlet property="debugTextLabel" destination="TXh-hp-RDw" id="Qfg-dq-nNs"/>
@@ -615,6 +616,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="RF0-uK-Dgn" id="6kW-yZ-LpS"/>
                         <outlet property="itemsTableView" destination="bUF-7x-u8u" id="h5l-km-62M"/>
+                        <segue destination="eNU-RD-m8O" kind="show" identifier="showLoginViewController" id="mcI-ig-qkT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lC-n5-0IL" userLabel="First Responder" sceneMemberID="firstResponder"/>

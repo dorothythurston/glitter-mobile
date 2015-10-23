@@ -12,16 +12,22 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        itemsTableView.estimatedRowHeight = 70.0
+        itemsTableView.rowHeight = UITableViewAutomaticDimension
+        displayTableView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
         session = NSURLSession.sharedSession()
+        
         if let api_token = KeychainWrapper.stringForKey("api_token") {
             getItems(api_token)
         } else {
             navigateToLogin()
         }
-        
-        itemsTableView.estimatedRowHeight = 70.0
-        itemsTableView.rowHeight = UITableViewAutomaticDimension
-        displayTableView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,8 +97,8 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
     //MARK: - Navigation
     
     func navigateToLogin() {
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
-        self.presentViewController(controller, animated: true, completion: nil)
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        self.navigationController!.presentViewController(controller, animated: true, completion: nil)
     }
     
     func displayTableView() {
@@ -103,7 +109,8 @@ class ItemsViewController: UIViewController, UITableViewDataSource, UITableViewD
         KeychainWrapper.removeObjectForKey("id")
         KeychainWrapper.removeObjectForKey("email")
         KeychainWrapper.removeObjectForKey("api_token")
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
-        self.presentViewController(controller, animated: true, completion: nil)
+        let controller = 
+        self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        self.navigationController!.presentViewController(controller, animated: true, completion: nil)
     }
 }
