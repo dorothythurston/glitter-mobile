@@ -7,6 +7,13 @@ class ItemsViewController: UIViewController {
     let itemsString = "v1/items"
     var items: [Item] = []
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
     @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -15,6 +22,7 @@ class ItemsViewController: UIViewController {
 
         itemsTableView.estimatedRowHeight = 70.0
         itemsTableView.rowHeight = UITableViewAutomaticDimension
+        itemsTableView.addSubview(self.refreshControl)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,6 +70,7 @@ class ItemsViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         self.itemsTableView.reloadData()
                         self.activityIndicator.stopAnimating()
+                        self.refreshControl.endRefreshing()
                     }
                 } catch {}
             }
@@ -132,5 +141,13 @@ extension ItemsViewController: UITableViewDataSource, UITableViewDelegate {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemDetailViewController") as! ItemDetailViewController
         controller.item = items[indexPath.row]
         self.navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        if let api_token = KeychainWrapper.stringForKey("api_token") {
+            getItems(api_token)
+        } else {
+            navigateToLogin()
+        }
     }
 }
