@@ -12,14 +12,14 @@ class ItemsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         itemsTableView.estimatedRowHeight = 70.0
         itemsTableView.rowHeight = UITableViewAutomaticDimension
-        displayTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        activityIndicator.backgroundColor = UIColor.bubblegumPinkColor()
         
         session = NSURLSession.sharedSession()
         
@@ -61,6 +61,7 @@ class ItemsViewController: UIViewController {
                     self.items = Item.itemsFromResults(parsedResult)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.itemsTableView.reloadData()
+                        self.activityIndicator.stopAnimating()
                     }
                 } catch {}
             }
@@ -73,10 +74,6 @@ class ItemsViewController: UIViewController {
     func navigateToLogin() {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
         self.navigationController!.presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    func displayTableView() {
-        activityIndicator.stopAnimating()
     }
     
     @IBAction func logOut() {
