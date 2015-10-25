@@ -459,6 +459,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXN-43-9x7">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="didPressSubmit" destination="GNg-ug-Q4i" eventType="touchUpInside" id="oWM-No-Nbt"/>
@@ -508,12 +509,16 @@
                             <constraint firstItem="ah3-Ol-9My" firstAttribute="top" secondItem="qei-L8-R28" secondAttribute="bottom" constant="18" id="GkK-pZ-DZ0"/>
                             <constraint firstItem="ah3-Ol-9My" firstAttribute="top" secondItem="qei-L8-R28" secondAttribute="bottom" constant="99" id="ING-OK-vCC"/>
                             <constraint firstItem="xpk-dH-QmH" firstAttribute="width" secondItem="ah3-Ol-9My" secondAttribute="width" id="XL7-P1-7h4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ah3-Ol-9My" secondAttribute="trailing" constant="55" id="cig-7A-zfb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ah3-Ol-9My" secondAttribute="trailing" constant="55" id="cig-7A-zfb">
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                            </constraint>
                             <constraint firstItem="xpk-dH-QmH" firstAttribute="top" secondItem="ah3-Ol-9My" secondAttribute="bottom" constant="73" id="i7V-33-b9f"/>
                             <constraint firstItem="Fk6-dn-dTs" firstAttribute="top" secondItem="UXN-43-9x7" secondAttribute="bottom" constant="398" id="iDj-Zr-zGy"/>
                             <constraint firstItem="xpk-dH-QmH" firstAttribute="centerX" secondItem="Hzx-C2-gXD" secondAttribute="centerX" id="j2E-M7-YKx"/>
                             <constraint firstItem="xpk-dH-QmH" firstAttribute="top" secondItem="ah3-Ol-9My" secondAttribute="bottom" constant="73" id="j3Z-kT-Avi"/>
-                            <constraint firstItem="ah3-Ol-9My" firstAttribute="leading" secondItem="Hzx-C2-gXD" secondAttribute="leadingMargin" constant="65" id="pha-8L-che"/>
+                            <constraint firstItem="ah3-Ol-9My" firstAttribute="leading" secondItem="Hzx-C2-gXD" secondAttribute="leadingMargin" constant="65" id="pha-8L-che">
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
