@@ -4,18 +4,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var switchSignUpSignInButton: UIButton!
     @IBOutlet weak var debugTextLabel: UILabel!
     
-    let baseURLSecureString = "http://glitter-app.herokuapp.com/"
-    let authenticationValidationString = "v1/session"
+    let baseURLSecureString = "http://glitter-app.herokuapp.com/v1"
+    let authenticationValidationString = "/session"
+    let signUpString = "/users"
     let accessToken = Secret().value
-    var username = String?()
+    var userParam =  "user"
+    var sessionParam = "session"
     var session: NSURLSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: write a better way of checking for current user
-        if let api_token = KeychainWrapper.stringForKey("api_token") {
+        if let _ = KeychainWrapper.stringForKey("api_token") {
             completeLogin()
         }
         session = NSURLSession.sharedSession()
@@ -38,18 +41,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else if passwordTextField.text!.isEmpty {
             debugTextLabel.text = "Password Empty"
         } else {
-            self.login(usernameTextField.text!, password: passwordTextField.text!)
+            if continueButton.titleLabel!.text == "Sign in" {
+                self.authenticate(authenticationValidationString, param: sessionParam)
+            } else {
+                self.authenticate(signUpString, param: userParam)
+            }
         }
     }
     
-    func login(username: String, password: String) {
+    @IBAction func didPressSwitchSignUpSignIn(sender: AnyObject) {
+        if continueButton.titleLabel!.text == "Sign in" {
+            continueButton.setTitle("Sign up", forState: UIControlState.Normal)
+            switchSignUpSignInButton.setTitle("Sign in", forState: UIControlState.Normal)
+        } else {
+            continueButton.setTitle("Sign in", forState: UIControlState.Normal)
+            switchSignUpSignInButton.setTitle("Sign up", forState: UIControlState.Normal)
+        }
+    }
+    
+    func authenticate(requestString: String, param: String ) {
         // Build the URL
-        let urlString = baseURLSecureString + authenticationValidationString
+        let urlString = baseURLSecureString + requestString
         let url = NSURL(string: urlString)!
         var params: [String: AnyObject] {
-            return ["session": ["email": username, "password": password]]
+            return [param: ["email": usernameTextField!.text!, "password": passwordTextField!.text!]]
         }
-
+        
         // Configure the request
         let request = NSMutableURLRequest(URL: url)
         do { let requestHTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.init(rawValue: 0)
@@ -59,7 +76,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             request.HTTPBody = requestHTTPBody
             request.setValue(accessToken, forHTTPHeaderField: "X-ACCESS-TOKEN")
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+            
             // Make the request
             let task = session.dataTaskWithRequest(request) { data, response, downloadError in
                 
@@ -86,7 +103,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             self.completeLogin()
                         } else {
                             dispatch_async(dispatch_get_main_queue()) {
-                                self.debugTextLabel.text = "Incorrect login information"
+                                self.debugTextLabel.text = "Incorrect information given"
                             }
                         }
                     } catch {}
