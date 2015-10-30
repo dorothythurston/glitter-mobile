@@ -16,6 +16,8 @@
 		B84DFEE41BDA7B4400E2C5A6 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */; };
 		B84DFEEA1BDAA8A500E2C5A6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */; };
 		B84DFEEC1BDAC7F900E2C5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */; };
+		B8BCEE0F1BE3EA41001D990A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BCEE0D1BE3EA41001D990A /* Fabric.framework */; };
+		B8BCEE101BE3EA41001D990A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */; };
 		B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF14F1BD59780002F6268 /* AppDelegate.swift */; };
 		B8BDF1571BD59780002F6268 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1561BD59780002F6268 /* Assets.xcassets */; };
 		B8BDF15A1BD59780002F6268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */; };
@@ -32,6 +34,8 @@
 		B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B8BCEE0D1BE3EA41001D990A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B8BDF14C1BD59780002F6268 /* glitter-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "glitter-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BDF14F1BD59780002F6268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8BDF1561BD59780002F6268 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BCEE101BE3EA41001D990A /* Crashlytics.framework in Frameworks */,
+				B8BCEE0F1BE3EA41001D990A /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,8 @@
 				B84DFED71BD98AC400E2C5A6 /* Item.swift */,
 				B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */,
 				B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */,
+				B8BCEE0D1BE3EA41001D990A /* Fabric.framework */,
+				B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
 				B8BDF1581BD59780002F6268 /* LaunchScreen.storyboard */,
 				B8BDF15B1BD59780002F6268 /* Info.plist */,
@@ -98,6 +106,7 @@
 				B8BDF1481BD59780002F6268 /* Sources */,
 				B8BDF1491BD59780002F6268 /* Frameworks */,
 				B8BDF14A1BD59780002F6268 /* Resources */,
+				B8BCEE0C1BE3EA12001D990A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -152,6 +161,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B8BCEE0C1BE3EA12001D990A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 33e5b4a76e09bbcd52288ee1e9a15408dcfbb49e a88fdb08adbe2dc1017bb022745979839d76fda44fa058be30f991bad37ddd88";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B8BDF1481BD59780002F6268 /* Sources */ = {
@@ -270,6 +295,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/glitter-mobile",
+				);
 				INFOPLIST_FILE = "glitter-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dorothy.glitter-mobile";
@@ -281,6 +310,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/glitter-mobile",
+				);
 				INFOPLIST_FILE = "glitter-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dorothy.glitter-mobile";

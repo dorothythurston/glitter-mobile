@@ -119,7 +119,7 @@ extension ItemsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.createdAt?.text = formatDate(item.created_at)
         cell.createdAt?.textColor = UIColor.magentaPinkColor()
         cell.textField?.font?.fontWithSize(21.0)
-        cell.authorName?.text = "- \(item.user)"
+        cell.authorName?.text = "\(item.user)"
         cell.authorName?.textColor = UIColor.magentaPinkColor()
         cell.textField?.textColor = UIColor.flamingoPinkColor()
         cell.glitterCount?.textColor = UIColor.magentaPinkColor()
@@ -132,6 +132,7 @@ extension ItemsViewController: UITableViewDataSource, UITableViewDelegate {
     func formatDate(date: NSDate) -> String {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
+        formatter.dateStyle = .ShortStyle
         let stringValue = formatter.stringFromDate(date)
         return stringValue
     }
