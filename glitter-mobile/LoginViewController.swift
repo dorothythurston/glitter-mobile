@@ -37,14 +37,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didPressLogin(sender: AnyObject) {
         if usernameTextField.text!.isEmpty {
-            debugTextLabel.text = "Username Empty"
+            debugTextLabel.text = "Email Empty"
         } else if passwordTextField.text!.isEmpty {
             debugTextLabel.text = "Password Empty"
         } else {
-            if continueButton.titleLabel!.text == "Sign in" {
-                self.authenticate(authenticationValidationString, param: sessionParam)
+            if isValidEmail(usernameTextField.text!) {
+                if continueButton.titleLabel!.text == "Sign in" {
+                    self.authenticate(authenticationValidationString, param: sessionParam)
+                } else {
+                    self.authenticate(signUpString, param: userParam)
+                }
             } else {
-                self.authenticate(signUpString, param: userParam)
+                debugTextLabel.text = "Not a valid email address"
             }
         }
     }
@@ -124,6 +128,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setKeychainValue(value: AnyObject, keyName: String) {
         let escapedValue = "\(value)"
         KeychainWrapper.setString(escapedValue, forKey: keyName)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
 }
 
