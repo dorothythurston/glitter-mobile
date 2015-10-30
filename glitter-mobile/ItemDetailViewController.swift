@@ -42,7 +42,7 @@ class ItemDetailViewController: UIViewController {
         }
     }
     
-    func formatDate(date: NSDate) -> String {
+    private func formatDate(date: NSDate) -> String {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
         formatter.dateStyle = .MediumStyle
@@ -89,6 +89,7 @@ class ItemDetailViewController: UIViewController {
                             dispatch_async(dispatch_get_main_queue()) {
                                 self.item?.glitter_count! += 1
                                 self.glitterCountLabel?.text! = "glitter: \(self.item!.glitter_count!)"
+                                self.shakeAnimation(self.glitterCountLabel)
                             }
                         } else {
                             dispatch_async(dispatch_get_main_queue()) {
@@ -153,5 +154,22 @@ class ItemDetailViewController: UIViewController {
             // Start the request
             task.resume()
         } catch {}
+    }
+    
+    private func shakeAnimation(target: AnyObject) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        var upRect: NSValue {
+            return NSValue(CGPoint: CGPointMake(target.center.x - 10, target.center.y))
+        }
+        
+        var downRect: NSValue {
+            return NSValue(CGPoint: CGPointMake(target.center.x + 10, target.center.y))
+        }
+        animation.fromValue = upRect
+        animation.toValue = downRect
+        target.layer.addAnimation(animation, forKey: "position")
     }
 }
