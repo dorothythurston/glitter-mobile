@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         self.usernameTextField.delegate = self;
         usernameTextField.becomeFirstResponder()
+        continueButton.layer.cornerRadius = 10;
     }
     
     override func didReceiveMemoryWarning() {

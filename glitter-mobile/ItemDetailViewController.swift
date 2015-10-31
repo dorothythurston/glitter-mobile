@@ -23,17 +23,17 @@ class ItemDetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.bubblegumPinkColor()
+        view.backgroundColor = UIColor.greyPurpleColor()
         textField?.text = item!.text
         textField?.font?.fontWithSize(21.0)
         authorName?.text = "\(item!.user)"
-        authorName?.textColor = UIColor.magentaPinkColor()
-        textField?.textColor = UIColor.flamingoPinkColor()
-        glitterCountLabel?.textColor = UIColor.magentaPinkColor()
+        authorName?.textColor = UIColor.brightPurpleColor()
+        textField?.textColor = UIColor.princessPurpleColor()
+        glitterCountLabel?.textColor = UIColor.brightPurpleColor()
         glitterCountLabel?.text = "glitter: \(item!.glitter_count!)"
         createdAt?.text = formatDate(item!.created_at)
-        createdAt?.textColor = UIColor.magentaPinkColor()
-        bubbleView.layer.backgroundColor = UIColor.barelyPinkColor().CGColor
+        createdAt?.textColor = UIColor.brightPurpleColor()
+        bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         bubbleView.layer.cornerRadius = 15
         
         if item?.user == KeychainWrapper.stringForKey("email") {

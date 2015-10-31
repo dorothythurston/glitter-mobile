@@ -27,15 +27,15 @@ class ItemsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        activityIndicator.backgroundColor = UIColor.bubblegumPinkColor()
-        
-        session = NSURLSession.sharedSession()
-        
         if let api_token = KeychainWrapper.stringForKey("api_token") {
             getItems(api_token)
         } else {
             navigateToLogin()
         }
+        
+        activityIndicator.backgroundColor = UIColor.greyPurpleColor()
+        
+        session = NSURLSession.sharedSession()
     }
     
     override func didReceiveMemoryWarning() {
@@ -114,17 +114,17 @@ extension ItemsViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as! ItemTableViewCell!
         
         // Set cell defaults
-        cell.contentView.backgroundColor = UIColor.bubblegumPinkColor()
+        cell.contentView.backgroundColor = UIColor.greyPurpleColor()
         cell.textField?.text = item.text
         cell.createdAt?.text = formatDate(item.created_at)
-        cell.createdAt?.textColor = UIColor.magentaPinkColor()
+        cell.createdAt?.textColor = UIColor.brightPurpleColor()
         cell.textField?.font?.fontWithSize(21.0)
         cell.authorName?.text = "\(item.user)"
-        cell.authorName?.textColor = UIColor.magentaPinkColor()
-        cell.textField?.textColor = UIColor.flamingoPinkColor()
-        cell.glitterCount?.textColor = UIColor.magentaPinkColor()
+        cell.authorName?.textColor = UIColor.brightPurpleColor()
+        cell.textField?.textColor = UIColor.princessPurpleColor()
+        cell.glitterCount?.textColor = UIColor.brightPurpleColor()
         cell.glitterCount?.text = "glitter: \(item.glitter_count!)"
-        cell.bubbleView.layer.backgroundColor = UIColor.barelyPinkColor().CGColor
+        cell.bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         cell.bubbleView.layer.cornerRadius = 15
         return cell
     }

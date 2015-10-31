@@ -10,19 +10,19 @@ class NewItemViewController: UIViewController {
     let accessToken = Secret().value
     var session: NSURLSession!
     let placeHolderColor = UIColor.lightGrayColor()
-    let typingColor = UIColor.magentaPinkColor()
+    let typingColor = UIColor.brightPurpleColor()
     let placeHolderText = "What's happening?"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.bubblegumPinkColor()
+        view.backgroundColor = UIColor.greyPurpleColor()
         
         session = NSURLSession.sharedSession()
         textField.delegate = self
         textField.text = placeHolderText
         textField.textColor = placeHolderColor
         textField.layer.cornerRadius = 10.0
-        textField.backgroundColor = UIColor.barelyPinkColor()
+        textField.backgroundColor = UIColor.barelyPurpleColor()
     }
 
     override func didReceiveMemoryWarning() {
