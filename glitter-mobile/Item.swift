@@ -2,28 +2,20 @@ import UIKit
 
 struct Item {
     var text = ""
-    var user = ""
+    var user_id: Int?
+    var user_email = ""
     var glitter_count: Int?
     var id: Int?
     var created_at = NSDate()
     
     init(dictionary: NSDictionary) {
         text =  dictionary["text"] as! String
-        user = dictionary["user"] as! String
+        user_id = dictionary["user_id"] as? Int
         glitter_count = dictionary["glitter_count"] as? Int
         id = dictionary["id"] as? Int
         let stringDate = dictionary["created_at"] as! String
         created_at = timeDateFormat(stringDate)
-    }
-    
-    static func itemsFromResults(json: [NSDictionary]) -> [Item] {
-        var items: [Item] = []
-        
-        for object in json {
-            items.append(Item(dictionary: object))
-        }
-        
-        return items
+        user_email =  dictionary["user_email"] as! String
     }
     
     func timeDateFormat(string: String) -> NSDate {

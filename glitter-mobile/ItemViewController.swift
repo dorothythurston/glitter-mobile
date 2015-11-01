@@ -1,10 +1,12 @@
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+class ItemViewController: UIViewController {
     var item: Item?
+    var item_id: Int?
     let baseURLSecureString = "http://glitter-app.herokuapp.com/"
     let itemsString = "v1/items"
     let accessToken = Secret().value
+    let api_token = KeychainWrapper.stringForKey("api_token")
     var session: NSURLSession!
     
     @IBOutlet weak var glitterButton: UIButton!
@@ -15,28 +17,21 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var createdAt: UILabel!
     @IBOutlet weak var bubbleView: UIView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
         session = NSURLSession.sharedSession()
+        getItemInfo(item_id!)
     }
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.greyPurpleColor()
-        textField?.text = item!.text
-        textField?.font?.fontWithSize(21.0)
-        authorName?.text = "\(item!.user)"
-        authorName?.textColor = UIColor.brightPurpleColor()
-        textField?.textColor = UIColor.princessPurpleColor()
-        glitterCountLabel?.textColor = UIColor.brightPurpleColor()
-        glitterCountLabel?.text = "glitter: \(item!.glitter_count!)"
-        createdAt?.text = formatDate(item!.created_at)
-        createdAt?.textColor = UIColor.brightPurpleColor()
         bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         bubbleView.layer.cornerRadius = 15
         
-        if item?.user == KeychainWrapper.stringForKey("email") {
+        if item?.user_email == KeychainWrapper.stringForKey("email") {
             deleteButton.hidden = false
             glitterButton.hidden = true
         }
@@ -48,6 +43,65 @@ class ItemDetailViewController: UIViewController {
         formatter.dateStyle = .MediumStyle
         let stringValue = formatter.stringFromDate(date)
         return stringValue
+    }
+    
+    func getItemInfo(item_id: Int) {
+        // Build the URL
+        let urlString = baseURLSecureString + itemsString + "/\(item_id)"
+        let url = NSURL(string: urlString)!
+        var params: [String: AnyObject] {
+            return ["item":["id": item_id]]
+        }
+        
+        // Configure the request
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "GET"
+        request.setValue(accessToken, forHTTPHeaderField: "X-ACCESS-TOKEN")
+        request.setValue(api_token, forHTTPHeaderField: "X-API-TOKEN")
+        
+        // Make the request
+        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
+            if let error = downloadError {
+                print("Could not complete the request \(error)")
+            } else {
+                // Parse the data
+                do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+                    // Use the data
+                    if let got_item = parsedResult["item"] as? NSDictionary {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.item = Item(dictionary: got_item)
+                            self.authorName.text = self.item!.user_email
+                            self.glitterCountLabel.text = "glitter: \(self.item!.glitter_count!)"
+                            self.createdAt.text = self.formatDate((self.item?.created_at)!)
+                            self.textField.text = self.item!.text
+                            self.activityIndicator.stopAnimating()
+                        }
+                    } else {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.debugTextLabel.text = "404 Not found"
+                            self.bubbleView.hidden = true
+                            self.glitterButton.hidden = true
+                            self.textField.hidden = true
+                            self.createdAt.hidden = true
+                            self.authorName.hidden = true
+                            self.deleteButton.hidden = true
+                            self.activityIndicator.stopAnimating()
+                        }
+                    }
+                } catch {
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func timeDateFormat(string: String) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let availabletoDateTime = dateFormatter.dateFromString(string)
+        return availabletoDateTime!
     }
     
     @IBAction func glitterItem() {

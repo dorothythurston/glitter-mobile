@@ -10,12 +10,17 @@
 		B84DFECA1BD9664400E2C5A6 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEC91BD9664400E2C5A6 /* Secret.swift */; };
 		B84DFED61BD97DEF00E2C5A6 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */; };
 		B84DFED81BD98AC400E2C5A6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFED71BD98AC400E2C5A6 /* Item.swift */; };
-		B84DFEDA1BD9ABCE00E2C5A6 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */; };
-		B84DFEDC1BD9B44100E2C5A6 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */; };
-		B84DFEDE1BD9BCDB00E2C5A6 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDD1BD9BCDB00E2C5A6 /* ItemsViewController.swift */; };
+		B84DFEDC1BD9B44100E2C5A6 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDB1BD9B44100E2C5A6 /* ItemViewController.swift */; };
+		B84DFEDE1BD9BCDB00E2C5A6 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEDD1BD9BCDB00E2C5A6 /* ActivitiesViewController.swift */; };
 		B84DFEE41BDA7B4400E2C5A6 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */; };
 		B84DFEEA1BDAA8A500E2C5A6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */; };
 		B84DFEEC1BDAC7F900E2C5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */; };
+		B88208621BE66B2100D1A657 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208611BE66B2100D1A657 /* Activity.swift */; };
+		B88208641BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208631BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift */; };
+		B88208661BE6749B00D1A657 /* ItemActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208651BE6749B00D1A657 /* ItemActivityTableViewCell.swift */; };
+		B88208681BE674D000D1A657 /* GlitterActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208671BE674D000D1A657 /* GlitterActivityTableViewCell.swift */; };
+		B882086A1BE68B1100D1A657 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208691BE68B1100D1A657 /* UserViewController.swift */; };
+		B882086E1BE6C1CE00D1A657 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B882086D1BE6C1CE00D1A657 /* User.swift */; };
 		B8BCEE0F1BE3EA41001D990A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BCEE0D1BE3EA41001D990A /* Fabric.framework */; };
 		B8BCEE101BE3EA41001D990A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */; };
 		B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF14F1BD59780002F6268 /* AppDelegate.swift */; };
@@ -28,12 +33,17 @@
 		B84DFEC91BD9664400E2C5A6 /* Secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		B84DFED71BD98AC400E2C5A6 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
-		B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
-		B84DFEDD1BD9BCDB00E2C5A6 /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		B84DFEDB1BD9B44100E2C5A6 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		B84DFEDD1BD9BCDB00E2C5A6 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B88208611BE66B2100D1A657 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		B88208631BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingRelationshipActivityTableViewCell.swift; sourceTree = "<group>"; };
+		B88208651BE6749B00D1A657 /* ItemActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemActivityTableViewCell.swift; sourceTree = "<group>"; };
+		B88208671BE674D000D1A657 /* GlitterActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlitterActivityTableViewCell.swift; sourceTree = "<group>"; };
+		B88208691BE68B1100D1A657 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		B882086D1BE6C1CE00D1A657 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B8BCEE0D1BE3EA41001D990A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B8BDF14C1BD59780002F6268 /* glitter-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "glitter-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,9 +91,14 @@
 				B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */,
 				B8BDF1671BD5C819002F6268 /* LoginViewController.swift */,
 				B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */,
-				B84DFEDD1BD9BCDB00E2C5A6 /* ItemsViewController.swift */,
-				B84DFEDB1BD9B44100E2C5A6 /* ItemDetailViewController.swift */,
-				B84DFED91BD9ABCE00E2C5A6 /* ItemTableViewCell.swift */,
+				B84DFEDD1BD9BCDB00E2C5A6 /* ActivitiesViewController.swift */,
+				B88208691BE68B1100D1A657 /* UserViewController.swift */,
+				B88208671BE674D000D1A657 /* GlitterActivityTableViewCell.swift */,
+				B88208651BE6749B00D1A657 /* ItemActivityTableViewCell.swift */,
+				B88208631BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift */,
+				B88208611BE66B2100D1A657 /* Activity.swift */,
+				B84DFEDB1BD9B44100E2C5A6 /* ItemViewController.swift */,
+				B882086D1BE6C1CE00D1A657 /* User.swift */,
 				B84DFED71BD98AC400E2C5A6 /* Item.swift */,
 				B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */,
 				B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */,
@@ -183,15 +198,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88208681BE674D000D1A657 /* GlitterActivityTableViewCell.swift in Sources */,
 				B84DFECA1BD9664400E2C5A6 /* Secret.swift in Sources */,
 				B8BDF1501BD59780002F6268 /* AppDelegate.swift in Sources */,
 				B84DFEE41BDA7B4400E2C5A6 /* NewItemViewController.swift in Sources */,
-				B84DFEDC1BD9B44100E2C5A6 /* ItemDetailViewController.swift in Sources */,
-				B84DFEDE1BD9BCDB00E2C5A6 /* ItemsViewController.swift in Sources */,
+				B84DFEDC1BD9B44100E2C5A6 /* ItemViewController.swift in Sources */,
+				B84DFEDE1BD9BCDB00E2C5A6 /* ActivitiesViewController.swift in Sources */,
 				B8BDF1681BD5C819002F6268 /* LoginViewController.swift in Sources */,
+				B88208661BE6749B00D1A657 /* ItemActivityTableViewCell.swift in Sources */,
+				B882086E1BE6C1CE00D1A657 /* User.swift in Sources */,
 				B84DFED81BD98AC400E2C5A6 /* Item.swift in Sources */,
-				B84DFEDA1BD9ABCE00E2C5A6 /* ItemTableViewCell.swift in Sources */,
 				B84DFED61BD97DEF00E2C5A6 /* KeychainWrapper.swift in Sources */,
+				B882086A1BE68B1100D1A657 /* UserViewController.swift in Sources */,
+				B88208621BE66B2100D1A657 /* Activity.swift in Sources */,
+				B88208641BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift in Sources */,
 				B84DFEEA1BDAA8A500E2C5A6 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
