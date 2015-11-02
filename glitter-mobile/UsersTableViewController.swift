@@ -13,6 +13,8 @@ class UsersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.backgroundColor = UIColor.barelyPurpleColor()
         
     }
     
@@ -74,5 +76,11 @@ class UsersTableViewController: UITableViewController {
         cell.userEmail.text = user.email
         return cell
     }
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = users[indexPath.row]
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
+        controller.user_id = user.id
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
 }

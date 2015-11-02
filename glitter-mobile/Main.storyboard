@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Bo-aL-NWe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -847,10 +848,10 @@
                         <color key="sectionIndexBackgroundColor" red="0.70196078429999997" green="0.51764705879999995" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="followingRelationshipActivityCell" rowHeight="93" id="Lv2-3O-S42" customClass="FollowingRelationshipActivityTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lv2-3O-S42" id="Vb5-hw-3jz">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anl-jV-JYk">
@@ -978,10 +979,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemActivityCell" rowHeight="93" id="ghK-vi-cu9" customClass="ItemActivityTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="185" width="600" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ghK-vi-cu9" id="9HX-kf-TKU">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xo6-oZ-pyF">
@@ -1116,10 +1117,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="glitterActivityCell" rowHeight="93" id="Vfp-dY-n9n" customClass="GlitterActivityTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="278" width="600" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vfp-dY-n9n" id="za1-5Y-Mir">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvd-Y1-658">
@@ -1202,11 +1203,11 @@
                                                 <mask key="constraints">
                                                     <exclude reference="BcF-mg-qNQ"/>
                                                     <exclude reference="Cpf-Kd-EhL"/>
-                                                    <exclude reference="4Qo-9P-qn6"/>
-                                                    <exclude reference="m50-zP-LYN"/>
                                                     <exclude reference="Y3A-6E-iLG"/>
                                                     <exclude reference="giP-GI-Ayh"/>
                                                     <exclude reference="u7d-BO-tpn"/>
+                                                    <exclude reference="4Qo-9P-qn6"/>
+                                                    <exclude reference="m50-zP-LYN"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1218,11 +1219,11 @@
                                                 <mask key="constraints">
                                                     <include reference="BcF-mg-qNQ"/>
                                                     <include reference="Cpf-Kd-EhL"/>
-                                                    <include reference="4Qo-9P-qn6"/>
-                                                    <include reference="m50-zP-LYN"/>
                                                     <include reference="Y3A-6E-iLG"/>
                                                     <include reference="giP-GI-Ayh"/>
                                                     <include reference="u7d-BO-tpn"/>
+                                                    <include reference="4Qo-9P-qn6"/>
+                                                    <include reference="m50-zP-LYN"/>
                                                 </mask>
                                             </variation>
                                         </view>
@@ -1323,26 +1324,31 @@
             <objects>
                 <tableViewController id="tzL-zx-hRi" customClass="UsersTableViewController" customModule="glitter_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RlO-F7-vMd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInfoCell" id="glB-Ai-icM" customClass="UserTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="userInfoCell" id="glB-Ai-icM" customClass="UserTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="glB-Ai-icM" id="CbW-wc-nKo">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d@d.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPD-y6-NEI">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.34509803919999998" green="0.0" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="PPD-y6-NEI" firstAttribute="leading" secondItem="CbW-wc-nKo" secondAttribute="leadingMargin" constant="5" id="55K-CZ-Ez5"/>
+                                        <constraint firstItem="PPD-y6-NEI" firstAttribute="centerX" secondItem="CbW-wc-nKo" secondAttribute="centerX" id="lZ6-e5-gfd"/>
                                         <constraint firstItem="PPD-y6-NEI" firstAttribute="centerY" secondItem="CbW-wc-nKo" secondAttribute="centerY" id="rlY-Bb-9ku"/>
                                     </constraints>
                                     <variation key="default">
@@ -1351,6 +1357,7 @@
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="55K-CZ-Ez5"/>
+                                            <exclude reference="lZ6-e5-gfd"/>
                                             <exclude reference="rlY-Bb-9ku"/>
                                         </mask>
                                     </variation>
@@ -1359,12 +1366,15 @@
                                             <include reference="PPD-y6-NEI"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="55K-CZ-Ez5"/>
+                                            <exclude reference="55K-CZ-Ez5"/>
+                                            <include reference="lZ6-e5-gfd"/>
                                             <include reference="rlY-Bb-9ku"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.94956614679999995" blue="0.99881724289999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="userEmail" destination="PPD-y6-NEI" id="2Gi-fe-Res"/>
                                 </connections>
