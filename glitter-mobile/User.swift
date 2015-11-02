@@ -3,11 +3,11 @@ import UIKit
 struct User {
     var email = ""
     var id: Int?
-    var followers: Int?
+    var followers: [Int]?
     
     init(dictionary: NSDictionary) {
         email =  dictionary["email"] as! String
-        followers = dictionary["followers"] as? Int
+        followers = dictionary["followers"] as? [Int]
         id = dictionary["id"] as? Int
     }
     
