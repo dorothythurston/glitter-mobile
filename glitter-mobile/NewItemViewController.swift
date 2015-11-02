@@ -72,7 +72,7 @@ class NewItemViewController: UIViewController {
                     // Parse the data
                     do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                         // Use the data
-                        if let success = parsedResult["success"] {
+                        if let _ = parsedResult["success"] {
                             dispatch_async(dispatch_get_main_queue()) {
                                 self.navigationController?.popViewControllerAnimated(true)
                             }

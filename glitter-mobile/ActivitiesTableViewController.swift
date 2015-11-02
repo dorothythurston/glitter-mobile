@@ -98,7 +98,7 @@ class ActivitiesTableViewController: UITableViewController {
             let activity = activities[indexPath.row]
             
             cell.actorName.setTitle(activity.actor_email, forState: UIControlState.Normal)
-            cell.activityText.text = "followed \(activity.target_id)"
+            cell.activityText.text = "followed a user"
             cell.createdAt.text = formatDate(activity.created_at)
             cell.bubbleView.layer.cornerRadius = 15
             

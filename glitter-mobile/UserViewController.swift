@@ -187,9 +187,8 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
     
         cell.textField?.text = item.text
         cell.createdAt?.text = formatDate(item.created_at)
-        cell.textField?.font?.fontWithSize(21.0)
+        cell.textField?.font?.fontWithSize(19.0)
         cell.authorName?.text = "\(self.user!.email)"
-        //cell.glitterCount?.text = "glitter: \(item.glitter_count!)"
         cell.bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         cell.bubbleView.layer.cornerRadius = 15
         return cell

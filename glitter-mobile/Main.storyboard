@@ -678,20 +678,6 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="glitter:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a05-58-Hem">
-                                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAw-kh-02b">
-                                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.34509803919999998" green="0.0" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="post post post" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GpZ-gi-Ghb">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                             <animations/>
@@ -717,63 +703,50 @@
                                                             <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                         </constraint>
                                                         <constraint firstItem="GpZ-gi-Ghb" firstAttribute="leading" secondItem="2DB-eW-NN8" secondAttribute="leading" id="4zO-5Y-yHc"/>
-                                                        <constraint firstItem="a05-58-Hem" firstAttribute="top" secondItem="GpZ-gi-Ghb" secondAttribute="bottom" constant="10" id="FOs-F6-jHt"/>
                                                         <constraint firstItem="R8e-R9-8xp" firstAttribute="top" secondItem="GpZ-gi-Ghb" secondAttribute="bottom" constant="8" id="JJx-uF-DxA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="sAw-kh-02b" secondAttribute="trailing" constant="10" id="MHB-k8-aZ3"/>
                                                         <constraint firstItem="R8e-R9-8xp" firstAttribute="leading" secondItem="GpZ-gi-Ghb" secondAttribute="leading" id="NXO-eO-GDG"/>
                                                         <constraint firstItem="GpZ-gi-Ghb" firstAttribute="top" secondItem="2DB-eW-NN8" secondAttribute="bottom" constant="8" id="Nrj-uf-kNJ"/>
                                                         <constraint firstItem="2DB-eW-NN8" firstAttribute="leading" secondItem="RjX-F3-Oqp" secondAttribute="leading" constant="8" id="Omf-FX-fMP">
                                                             <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                         </constraint>
-                                                        <constraint firstItem="sAw-kh-02b" firstAttribute="leading" secondItem="a05-58-Hem" secondAttribute="trailing" constant="4" id="Z9v-JH-MoU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="R8e-R9-8xp" secondAttribute="trailing" constant="15" id="adS-Nf-jRp"/>
                                                         <constraint firstAttribute="trailing" secondItem="GpZ-gi-Ghb" secondAttribute="trailing" constant="10" id="dBU-wf-fxV"/>
                                                         <constraint firstAttribute="bottom" secondItem="R8e-R9-8xp" secondAttribute="bottom" constant="10" id="lRJ-nc-cnf"/>
-                                                        <constraint firstItem="sAw-kh-02b" firstAttribute="bottom" secondItem="a05-58-Hem" secondAttribute="bottom" id="td4-dX-VLh"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="subviews">
                                                             <exclude reference="R8e-R9-8xp"/>
-                                                            <exclude reference="a05-58-Hem"/>
-                                                            <exclude reference="sAw-kh-02b"/>
                                                             <exclude reference="GpZ-gi-Ghb"/>
                                                             <exclude reference="2DB-eW-NN8"/>
                                                         </mask>
                                                         <mask key="constraints">
                                                             <exclude reference="3Q9-mH-xYU"/>
                                                             <exclude reference="Omf-FX-fMP"/>
-                                                            <exclude reference="JJx-uF-DxA"/>
-                                                            <exclude reference="NXO-eO-GDG"/>
-                                                            <exclude reference="lRJ-nc-cnf"/>
-                                                            <exclude reference="FOs-F6-jHt"/>
-                                                            <exclude reference="MHB-k8-aZ3"/>
-                                                            <exclude reference="Z9v-JH-MoU"/>
-                                                            <exclude reference="td4-dX-VLh"/>
                                                             <exclude reference="4zO-5Y-yHc"/>
                                                             <exclude reference="Nrj-uf-kNJ"/>
                                                             <exclude reference="dBU-wf-fxV"/>
+                                                            <exclude reference="JJx-uF-DxA"/>
+                                                            <exclude reference="NXO-eO-GDG"/>
+                                                            <exclude reference="adS-Nf-jRp"/>
+                                                            <exclude reference="lRJ-nc-cnf"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="subviews">
                                                             <include reference="R8e-R9-8xp"/>
-                                                            <include reference="a05-58-Hem"/>
-                                                            <include reference="sAw-kh-02b"/>
                                                             <include reference="GpZ-gi-Ghb"/>
                                                             <include reference="2DB-eW-NN8"/>
                                                         </mask>
                                                         <mask key="constraints">
                                                             <include reference="3Q9-mH-xYU"/>
                                                             <include reference="Omf-FX-fMP"/>
-                                                            <include reference="JJx-uF-DxA"/>
-                                                            <include reference="NXO-eO-GDG"/>
-                                                            <include reference="lRJ-nc-cnf"/>
-                                                            <include reference="FOs-F6-jHt"/>
-                                                            <include reference="MHB-k8-aZ3"/>
-                                                            <include reference="Z9v-JH-MoU"/>
-                                                            <include reference="td4-dX-VLh"/>
                                                             <include reference="4zO-5Y-yHc"/>
                                                             <include reference="Nrj-uf-kNJ"/>
                                                             <include reference="dBU-wf-fxV"/>
+                                                            <include reference="JJx-uF-DxA"/>
+                                                            <exclude reference="NXO-eO-GDG"/>
+                                                            <include reference="adS-Nf-jRp"/>
+                                                            <include reference="lRJ-nc-cnf"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -814,7 +787,6 @@
                                             <outlet property="authorName" destination="2DB-eW-NN8" id="GbB-1a-fbc"/>
                                             <outlet property="bubbleView" destination="RjX-F3-Oqp" id="F0t-3b-NFy"/>
                                             <outlet property="createdAt" destination="R8e-R9-8xp" id="gSc-qW-BaL"/>
-                                            <outlet property="glitterCount" destination="sAw-kh-02b" id="2HR-dh-s0z"/>
                                             <outlet property="textField" destination="GpZ-gi-Ghb" id="8CE-yL-ymc"/>
                                         </connections>
                                     </tableViewCell>
@@ -1749,7 +1721,7 @@
         <image name="user" width="23" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wPS-Lm-adU"/>
+        <segue reference="OYo-BN-5w9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34509803921568627" green="0.0" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
 </document>
