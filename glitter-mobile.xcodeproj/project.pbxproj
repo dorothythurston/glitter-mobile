@@ -30,6 +30,7 @@
 		B8FC31531BE6EEF000475BE0 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31521BE6EEF000475BE0 /* ActivitiesTableViewController.swift */; };
 		B8FC31551BE6F65300475BE0 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31541BE6F65300475BE0 /* UsersTableViewController.swift */; };
 		B8FC31571BE6FAA400475BE0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31561BE6FAA400475BE0 /* TabViewController.swift */; };
+		B8FC31591BE701FB00475BE0 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31581BE701FB00475BE0 /* UserTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		B8FC31521BE6EEF000475BE0 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		B8FC31541BE6F65300475BE0 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		B8FC31561BE6FAA400475BE0 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		B8FC31581BE701FB00475BE0 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,8 @@
 				B88208671BE674D000D1A657 /* GlitterActivityTableViewCell.swift */,
 				B88208651BE6749B00D1A657 /* ItemActivityTableViewCell.swift */,
 				B88208631BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift */,
+				B8FC31581BE701FB00475BE0 /* UserTableViewCell.swift */,
+				B8FC31541BE6F65300475BE0 /* UsersTableViewController.swift */,
 				B88208611BE66B2100D1A657 /* Activity.swift */,
 				B84DFEDB1BD9B44100E2C5A6 /* ItemViewController.swift */,
 				B8FC31521BE6EEF000475BE0 /* ActivitiesTableViewController.swift */,
@@ -110,7 +114,6 @@
 				B84DFED71BD98AC400E2C5A6 /* Item.swift */,
 				B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */,
 				B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */,
-				B8FC31541BE6F65300475BE0 /* UsersTableViewController.swift */,
 				B8BCEE0D1BE3EA41001D990A /* Fabric.framework */,
 				B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
@@ -219,6 +222,7 @@
 				B882086E1BE6C1CE00D1A657 /* User.swift in Sources */,
 				B84DFED81BD98AC400E2C5A6 /* Item.swift in Sources */,
 				B8FC31531BE6EEF000475BE0 /* ActivitiesTableViewController.swift in Sources */,
+				B8FC31591BE701FB00475BE0 /* UserTableViewCell.swift in Sources */,
 				B84DFED61BD97DEF00E2C5A6 /* KeychainWrapper.swift in Sources */,
 				B882086A1BE68B1100D1A657 /* UserViewController.swift in Sources */,
 				B88208621BE66B2100D1A657 /* Activity.swift in Sources */,

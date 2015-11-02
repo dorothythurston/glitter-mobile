@@ -1318,7 +1318,7 @@
             </objects>
             <point key="canvasLocation" x="2985" y="272.25"/>
         </scene>
-        <!--Users Table View Controller-->
+        <!--Users-->
         <scene sceneID="DLf-6l-afC">
             <objects>
                 <tableViewController id="tzL-zx-hRi" customClass="UsersTableViewController" customModule="glitter_mobile" customModuleProvider="target" sceneMemberID="viewController">
@@ -1327,13 +1327,47 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInfoCell" id="glB-Ai-icM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInfoCell" id="glB-Ai-icM" customClass="UserTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="glB-Ai-icM" id="CbW-wc-nKo">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d@d.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPD-y6-NEI">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="PPD-y6-NEI" firstAttribute="leading" secondItem="CbW-wc-nKo" secondAttribute="leadingMargin" constant="5" id="55K-CZ-Ez5"/>
+                                        <constraint firstItem="PPD-y6-NEI" firstAttribute="centerY" secondItem="CbW-wc-nKo" secondAttribute="centerY" id="rlY-Bb-9ku"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="PPD-y6-NEI"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="55K-CZ-Ez5"/>
+                                            <exclude reference="rlY-Bb-9ku"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="PPD-y6-NEI"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="55K-CZ-Ez5"/>
+                                            <include reference="rlY-Bb-9ku"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="userEmail" destination="PPD-y6-NEI" id="2Gi-fe-Res"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1341,7 +1375,7 @@
                             <outlet property="delegate" destination="tzL-zx-hRi" id="FFP-AG-Yum"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CPd-cQ-hUO"/>
+                    <navigationItem key="navigationItem" title="Users" id="CPd-cQ-hUO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxU-zG-SMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
