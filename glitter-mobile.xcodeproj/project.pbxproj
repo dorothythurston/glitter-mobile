@@ -31,6 +31,7 @@
 		B8FC31551BE6F65300475BE0 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31541BE6F65300475BE0 /* UsersTableViewController.swift */; };
 		B8FC31571BE6FAA400475BE0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31561BE6FAA400475BE0 /* TabViewController.swift */; };
 		B8FC31591BE701FB00475BE0 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC31581BE701FB00475BE0 /* UserTableViewCell.swift */; };
+		B8FC315B1BE7C86D00475BE0 /* UserItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC315A1BE7C86C00475BE0 /* UserItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		B8FC31541BE6F65300475BE0 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		B8FC31561BE6FAA400475BE0 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		B8FC31581BE701FB00475BE0 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		B8FC315A1BE7C86C00475BE0 /* UserItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				B84DFED71BD98AC400E2C5A6 /* Item.swift */,
 				B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */,
 				B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */,
+				B8FC315A1BE7C86C00475BE0 /* UserItemTableViewCell.swift */,
 				B8BCEE0D1BE3EA41001D990A /* Fabric.framework */,
 				B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
@@ -217,6 +220,7 @@
 				B84DFEDC1BD9B44100E2C5A6 /* ItemViewController.swift in Sources */,
 				B84DFEDE1BD9BCDB00E2C5A6 /* ActivitiesViewController.swift in Sources */,
 				B8FC31571BE6FAA400475BE0 /* TabViewController.swift in Sources */,
+				B8FC315B1BE7C86D00475BE0 /* UserItemTableViewCell.swift in Sources */,
 				B8BDF1681BD5C819002F6268 /* LoginViewController.swift in Sources */,
 				B88208661BE6749B00D1A657 /* ItemActivityTableViewCell.swift in Sources */,
 				B882086E1BE6C1CE00D1A657 /* User.swift in Sources */,

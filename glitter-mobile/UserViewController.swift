@@ -11,12 +11,14 @@ class UserViewController: UIViewController {
     var user_id: Int?
     let current_user_id = Int(KeychainWrapper.stringForKey("id")!)
     var user: User?
+    var items: [Item] = []
     
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var unfollowButton: UIButton!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var userFollowerCount: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var itemsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class UserViewController: UIViewController {
             followButton.hidden = true
             unfollowButton.hidden = true
         }
+        
+        itemsTableView.estimatedRowHeight = 70.0
+        itemsTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -65,6 +70,8 @@ class UserViewController: UIViewController {
                     if let got_user = parsedResult["user"] as? NSDictionary {
                         dispatch_async(dispatch_get_main_queue()) {
                             self.user = User(dictionary: got_user)
+                            self.items = self.user!.items!
+                            self.itemsTableView.reloadData()
                             self.username.text = self.user!.email
                             self.userFollowerCount.text = "\(self.user!.followers!.count)"
  
@@ -155,5 +162,49 @@ class UserViewController: UIViewController {
             }
         }
         task.resume()
+    }
+}
+
+extension UserViewController: UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // Get cell type
+        let cellReuseIdentifier = "itemCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as! UserItemTableViewCell!
+        let item = items[indexPath.row]
+    
+        cell.textField?.text = item.text
+        cell.createdAt?.text = formatDate(item.created_at)
+        cell.textField?.font?.fontWithSize(21.0)
+        cell.authorName?.text = "\(self.user!.email)"
+        //cell.glitterCount?.text = "glitter: \(item.glitter_count!)"
+        cell.bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
+        cell.bubbleView.layer.cornerRadius = 15
+        return cell
+    }
+    
+    func formatDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        formatter.dateStyle = .ShortStyle
+        let stringValue = formatter.stringFromDate(date)
+        return stringValue
+    }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemViewController") as! ItemViewController
+        controller.item_id = items[indexPath.row].id
+        self.navigationController!.pushViewController(controller, animated: true)
     }
 }

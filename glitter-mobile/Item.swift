@@ -16,8 +16,22 @@ struct Item {
         id = dictionary["id"] as? Int
         let stringDate = dictionary["created_at"] as! String
         created_at = timeDateFormat(stringDate)
-        user_email =  dictionary["user_email"] as! String
-        current_user_glittered = dictionary["current_user_glittered"] as? Bool
+        if let email = dictionary["user_email"] as? String {
+            user_email =  email
+        }
+        if let glittered = dictionary["current_user_glittered"] as? Bool {
+            current_user_glittered = glittered
+        }
+    }
+    
+    static func itemsFromResults(json: [NSDictionary]) -> [Item] {
+        var items: [Item] = []
+        
+        for object in json {
+            items.append(Item(dictionary: object))
+        }
+        
+        return items
     }
     
     func timeDateFormat(string: String) -> NSDate {
