@@ -74,6 +74,10 @@ class ItemViewController: UIViewController {
                             self.glitterCountLabel.text = "glitter: \(self.item!.glitter_count!)"
                             self.createdAt.text = self.formatDate((self.item?.created_at)!)
                             self.textField.text = self.item!.text
+                            if self.item?.current_user_glittered == true {
+                                self.glitterButton.hidden = true
+                                
+                            }
                             self.activityIndicator.stopAnimating()
                         }
                     } else {
@@ -143,6 +147,7 @@ class ItemViewController: UIViewController {
                             dispatch_async(dispatch_get_main_queue()) {
                                 self.item?.glitter_count! += 1
                                 self.glitterCountLabel?.text! = "glitter: \(self.item!.glitter_count!)"
+                                self.glitterButton.hidden = true
                                 self.shakeAnimation(self.glitterCountLabel)
                             }
                         } else {

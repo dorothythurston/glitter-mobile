@@ -7,6 +7,7 @@ struct Item {
     var glitter_count: Int?
     var id: Int?
     var created_at = NSDate()
+    var current_user_glittered: Bool?
     
     init(dictionary: NSDictionary) {
         text =  dictionary["text"] as! String
@@ -16,6 +17,7 @@ struct Item {
         let stringDate = dictionary["created_at"] as! String
         created_at = timeDateFormat(stringDate)
         user_email =  dictionary["user_email"] as! String
+        current_user_glittered = dictionary["current_user_glittered"] as? Bool
     }
     
     func timeDateFormat(string: String) -> NSDate {
