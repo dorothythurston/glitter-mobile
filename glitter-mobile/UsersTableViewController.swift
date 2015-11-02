@@ -14,8 +14,7 @@ class UsersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.backgroundColor = UIColor.barelyPurpleColor()
-        
+        tableView.backgroundColor = UIColor.greyPurpleColor()
     }
     
     override func viewWillAppear(animated: Bool) {

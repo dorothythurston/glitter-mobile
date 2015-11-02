@@ -7,6 +7,7 @@ class ItemViewController: UIViewController {
     let itemsString = "v1/items"
     let accessToken = Secret().value
     let api_token = KeychainWrapper.stringForKey("api_token")
+    let current_user_id = Int(KeychainWrapper.stringForKey("id")!)
     var session: NSURLSession!
     
     @IBOutlet weak var glitterButton: UIButton!
@@ -30,11 +31,6 @@ class ItemViewController: UIViewController {
         view.backgroundColor = UIColor.greyPurpleColor()
         bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         bubbleView.layer.cornerRadius = 15
-        
-        if item?.user_email == KeychainWrapper.stringForKey("email") {
-            deleteButton.hidden = false
-            glitterButton.hidden = true
-        }
     }
     
     private func formatDate(date: NSDate) -> String {
@@ -77,6 +73,10 @@ class ItemViewController: UIViewController {
                             if self.item?.current_user_glittered == true {
                                 self.glitterButton.hidden = true
                                 
+                            }
+                            if self.item?.user_id == self.current_user_id {
+                                self.deleteButton.hidden = false
+                                self.glitterButton.hidden = true
                             }
                             self.activityIndicator.stopAnimating()
                         }

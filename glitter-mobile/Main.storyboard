@@ -691,7 +691,7 @@
                                                             <color key="textColor" red="0.34509803919999998" green="0.0" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="post post post" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GpZ-gi-Ghb">
+                                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="post post post" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GpZ-gi-Ghb">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                             <animations/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -832,7 +832,9 @@
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.94956614679999995" blue="0.99881724289999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bXm-f9-1AU" firstAttribute="top" secondItem="ahM-Wg-gVQ" secondAttribute="bottom" constant="6" id="3Th-Gr-IIY"/>
+                            <constraint firstItem="bXm-f9-1AU" firstAttribute="top" secondItem="ahM-Wg-gVQ" secondAttribute="bottom" constant="6" id="3Th-Gr-IIY">
+                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                            </constraint>
                             <constraint firstItem="egC-ux-YNe" firstAttribute="centerX" secondItem="6eW-BO-JBb" secondAttribute="centerX" id="4z8-Bc-avv"/>
                             <constraint firstItem="UJ7-XR-mja" firstAttribute="centerX" secondItem="6eW-BO-JBb" secondAttribute="centerX" id="5J9-3B-2bn"/>
                             <constraint firstItem="UJ7-XR-mja" firstAttribute="height" secondItem="egC-ux-YNe" secondAttribute="height" id="64S-nR-10l"/>
@@ -849,7 +851,7 @@
                             </constraint>
                             <constraint firstItem="CjB-SH-Uug" firstAttribute="width" secondItem="6eW-BO-JBb" secondAttribute="width" id="PGv-Am-VtX"/>
                             <constraint firstItem="UJ7-XR-mja" firstAttribute="top" secondItem="ahM-Wg-gVQ" secondAttribute="bottom" constant="14" id="TR1-GE-NN3">
-                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstItem="9fP-au-xRV" firstAttribute="height" secondItem="6eW-BO-JBb" secondAttribute="height" id="UG1-GM-6ga"/>
                             <constraint firstItem="ahM-Wg-gVQ" firstAttribute="top" secondItem="806-bb-XRN" secondAttribute="bottom" constant="16" id="Vt5-1t-Ncx">
@@ -868,7 +870,7 @@
                             </constraint>
                             <constraint firstItem="bXm-f9-1AU" firstAttribute="bottom" secondItem="Hp3-Rg-0FS" secondAttribute="bottom" id="s9L-gO-Ieu"/>
                             <constraint firstItem="CjB-SH-Uug" firstAttribute="top" secondItem="UJ7-XR-mja" secondAttribute="bottom" constant="41" id="ty8-U1-g7x">
-                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="BPg-Re-6P2" firstAttribute="top" secondItem="CjB-SH-Uug" secondAttribute="bottom" id="vWy-CY-q6i"/>
                             <constraint firstItem="bXm-f9-1AU" firstAttribute="centerX" secondItem="6eW-BO-JBb" secondAttribute="centerX" id="zss-yV-dZE"/>
@@ -1596,6 +1598,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" red="0.70196078429999997" green="0.51764705879999995" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="userInfoCell" id="glB-Ai-icM" customClass="UserTableViewCell" customModule="glitter_mobile" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
