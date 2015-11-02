@@ -9,7 +9,7 @@ class UserViewController: UIViewController {
     let api_token = KeychainWrapper.stringForKey("api_token")
     var session: NSURLSession!
     var user_id: Int?
-    let current_user_id = Int(KeychainWrapper.stringForKey("id")!)
+    var current_user_id: Int!
     var user: User?
     var items: [Item] = []
     
@@ -22,6 +22,8 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        current_user_id =  Int(KeychainWrapper.stringForKey("id")!)
         
         if user_id == nil {
             user_id = current_user_id

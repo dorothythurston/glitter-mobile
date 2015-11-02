@@ -6,6 +6,7 @@ class ActivitiesTableViewController: UITableViewController {
     let accessToken = Secret().value
     let activitiesString = "v1/activities"
     var activities: [Activity] = []
+    var api_token: String?
     
     @IBOutlet weak var activitiesTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -22,11 +23,8 @@ class ActivitiesTableViewController: UITableViewController {
         super.viewWillAppear(true)
         session = NSURLSession.sharedSession()
         
-        if let api_token = KeychainWrapper.stringForKey("api_token") {
-            getActivities(api_token)
-        } else {
-            navigateToLogin()
-        }
+        api_token = KeychainWrapper.stringForKey("api_token")
+        getActivities(api_token!)
         
         self.view.backgroundColor = UIColor.greyPurpleColor()
         //activityIndicator.backgroundColor = UIColor.greyPurpleColor()
@@ -74,17 +72,15 @@ class ActivitiesTableViewController: UITableViewController {
     
     //MARK: - Navigation
     
-    func navigateToLogin() {
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
-        self.navigationController!.presentViewController(controller, animated: true, completion: nil)
-    }
-    
     @IBAction func logOut() {
         KeychainWrapper.removeObjectForKey("id")
         KeychainWrapper.removeObjectForKey("email")
         KeychainWrapper.removeObjectForKey("api_token")
-        let controller =
-        self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        navigateToLogin()
+    }
+    
+    private func navigateToLogin() {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
         self.navigationController!.presentViewController(controller, animated: true, completion: nil)
     }
 
@@ -157,10 +153,6 @@ class ActivitiesTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        if let api_token = KeychainWrapper.stringForKey("api_token") {
-            getActivities(api_token)
-        } else {
-            navigateToLogin()
-        }
+        getActivities(api_token!)
     }
 }

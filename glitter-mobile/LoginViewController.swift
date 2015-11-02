@@ -123,6 +123,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         dispatch_async(dispatch_get_main_queue(), {
             self.debugTextLabel.text = ""
             self.dismissViewControllerAnimated(true, completion: nil)
+            let viewController = self.storyboard?.instantiateInitialViewController()
+            self.presentViewController(viewController!, animated: true, completion: nil)
         })
     }
     
