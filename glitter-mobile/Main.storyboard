@@ -565,7 +565,7 @@
             </objects>
             <point key="canvasLocation" x="3771" y="276"/>
         </scene>
-        <!--User View Controller-->
+        <!--Profile-->
         <scene sceneID="v31-1W-Q4T">
             <objects>
                 <viewController storyboardIdentifier="UserViewController" id="HVg-2m-HnS" customClass="UserViewController" customModule="glitter_mobile" customModuleProvider="target" sceneMemberID="viewController">
@@ -593,7 +593,8 @@
                                         <exclude reference="faI-oa-BQ4"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="134" y="69" width="131" height="39"/>
                                     <mask key="constraints">
                                         <include reference="NY3-12-5Mh"/>
                                         <include reference="faI-oa-BQ4"/>
@@ -607,6 +608,9 @@
                                 <state key="normal" title="unfollow">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="163" y="138" width="73" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="unfollow" destination="HVg-2m-HnS" eventType="touchUpInside" id="YAM-rb-GFR"/>
                                 </connections>
@@ -630,7 +634,8 @@
                                         <exclude reference="Zas-em-dc3"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="163" y="138" width="73" height="30"/>
                                     <mask key="constraints">
                                         <include reference="4ug-eM-qMh"/>
                                         <include reference="P2B-ia-tU5"/>
@@ -647,6 +652,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="231" y="112" width="10.5" height="20.5"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="followers:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hp3-Rg-0FS">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -654,6 +662,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="156" y="112" width="73" height="20.5"/>
+                                </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CjB-SH-Uug">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -791,6 +802,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="173" width="400" height="578"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="HVg-2m-HnS" id="268-VJ-PhB"/>
                                     <outlet property="delegate" destination="HVg-2m-HnS" id="BOz-cx-JnM"/>
@@ -927,13 +941,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="pPF-7x-WVh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="J3m-ts-dhP">
-                            <connections>
-                                <segue destination="GNg-ug-Q4i" kind="show" id="OYo-BN-5w9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Profile" id="pPF-7x-WVh"/>
                     <connections>
                         <outlet property="activityIndicator" destination="9fP-au-xRV" id="GVa-t6-27O"/>
                         <outlet property="followButton" destination="UJ7-XR-mja" id="RWB-yY-tWP"/>
@@ -964,6 +972,9 @@
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Submit"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="159" y="372" width="82" height="44"/>
+                                </variation>
                                 <connections>
                                     <action selector="didPressSubmit" destination="GNg-ug-Q4i" eventType="touchUpInside" id="oWM-No-Nbt"/>
                                 </connections>
@@ -988,7 +999,8 @@
                                         <exclude reference="kgq-vN-83F"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="50" y="82" width="300" height="165"/>
                                     <mask key="constraints">
                                         <exclude reference="7ZP-2D-eLS"/>
                                         <exclude reference="USr-Rq-9We"/>
@@ -1002,6 +1014,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="50" y="320" width="300" height="21"/>
+                                </variation>
                             </label>
                         </subviews>
                         <animations/>
@@ -1639,7 +1654,8 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9Bo-aL-NWe" customClass="TabViewController" customModule="glitter_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="0Dc-DK-oZt">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="0Dc-DK-oZt">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1660,7 +1676,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Bv-7B-GNu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Activities" image="activities" id="odF-Wx-xI4"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KUg-Gn-1gW">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KUg-Gn-1gW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -1680,7 +1697,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QPT-gc-gbX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Users" image="user" id="fIf-rD-M1u"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cpy-xD-ogc">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Cpy-xD-ogc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -1694,13 +1712,15 @@
             </objects>
             <point key="canvasLocation" x="2140.5" y="1043.25"/>
         </scene>
-        <!--My Page-->
+        <!--My Profile-->
         <scene sceneID="OOn-4P-Ep7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVO-Uz-wof" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rK-eH-1Ck" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Page" image="me" id="aec-Ea-Wtt"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="me" id="aec-Ea-Wtt"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K7b-ZA-627">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="K7b-ZA-627">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -1710,7 +1730,6 @@
                         <segue destination="HVg-2m-HnS" kind="relationship" relationship="rootViewController" id="d0c-66-T6c"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xVO-Uz-wof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4524" y="276"/>
         </scene>
@@ -1720,8 +1739,5 @@
         <image name="me" width="24" height="24"/>
         <image name="user" width="23" height="20"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="OYo-BN-5w9"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34509803921568627" green="0.0" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
 </document>
