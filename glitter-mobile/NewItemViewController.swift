@@ -22,7 +22,7 @@ class NewItemViewController: UIViewController {
         textField.text = placeHolderText
         textField.textColor = placeHolderColor
         textField.layer.cornerRadius = 10.0
-        textField.backgroundColor = UIColor.barelyPurpleColor()
+        textField.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10)
     }
 
     override func didReceiveMemoryWarning() {
