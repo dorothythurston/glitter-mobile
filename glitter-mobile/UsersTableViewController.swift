@@ -72,8 +72,8 @@ class UsersTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("userInfoCell", forIndexPath: indexPath) as! UserTableViewCell
         let user = users[indexPath.row]
-        cell.userEmail.text = user.email
-        cell.userEmail.adjustsFontSizeToFitWidth = true
+        cell.username.text = user.username
+        cell.username.adjustsFontSizeToFitWidth = true
         return cell
     }
     

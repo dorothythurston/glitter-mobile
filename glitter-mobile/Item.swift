@@ -3,7 +3,7 @@ import UIKit
 struct Item {
     var text = ""
     var user_id: Int?
-    var user_email = ""
+    var user_username = ""
     var glitter_count: Int?
     var id: Int?
     var created_at = NSDate()
@@ -16,8 +16,8 @@ struct Item {
         id = dictionary["id"] as? Int
         let stringDate = dictionary["created_at"] as! String
         created_at = timeDateFormat(stringDate)
-        if let email = dictionary["user_email"] as? String {
-            user_email =  email
+        if let username = dictionary["user_username"] as? String {
+            user_username =  username
         }
         if let glittered = dictionary["current_user_glittered"] as? Bool {
             current_user_glittered = glittered

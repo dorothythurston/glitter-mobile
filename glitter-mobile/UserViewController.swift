@@ -75,7 +75,7 @@ class UserViewController: UIViewController {
                             self.user = User(dictionary: got_user)
                             self.items = self.user!.items!
                             self.itemsTableView.reloadData()
-                            self.username.text = self.user!.email
+                            self.username.text = self.user!.username
                             self.userFollowerCount.text = "\(self.user!.followers!.count)"
  
                             if self.user_id == self.current_user_id {
@@ -189,7 +189,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textField?.text = item.text
         cell.createdAt?.text = formatDate(item.created_at)
         cell.textField?.font?.fontWithSize(19.0)
-        cell.authorName?.text = "\(self.user!.email)"
+        cell.authorName?.text = "\(self.user!.username)"
         cell.bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         cell.bubbleView.layer.cornerRadius = 15
         return cell

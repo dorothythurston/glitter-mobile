@@ -6,7 +6,7 @@ class FollowingRelationshipActivityTableViewCell: UITableViewCell {
     @IBOutlet weak var activityText: UILabel!
     @IBOutlet weak var createdAt: UILabel!
     
-    @IBAction func didPressActorEmail() {
-        print("pressed actor email")
+    @IBAction func didPressActorUsername() {
+        print("pressed actor username")
     }
 }

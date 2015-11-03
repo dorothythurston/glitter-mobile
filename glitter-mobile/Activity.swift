@@ -1,7 +1,7 @@
 import UIKit
 
 struct Activity {
-    var actor_email = ""
+    var actor_username = ""
     var user_id: Int?
     var type = ""
     var subject_id: Int?
@@ -12,7 +12,7 @@ struct Activity {
     var created_at = NSDate()
     
     init(dictionary: NSDictionary) {
-        actor_email =  dictionary["actor_email"] as! String
+        actor_username =  dictionary["actor_username"] as! String
         user_id = dictionary["user_id"] as? Int
         type =  dictionary["type"] as! String
         subject_id = dictionary["subject_id"] as? Int

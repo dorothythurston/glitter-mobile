@@ -67,7 +67,7 @@ class ItemViewController: UIViewController {
                     if let got_item = parsedResult["item"] as? NSDictionary {
                         dispatch_async(dispatch_get_main_queue()) {
                             self.item = Item(dictionary: got_item)
-                            self.authorName.text = self.item!.user_email
+                            self.authorName.text = self.item!.user_username
                             self.glitterCountLabel.text = "glitter: \(self.item!.glitter_count!)"
                             self.createdAt.text = self.formatDate((self.item?.created_at)!)
                             self.textField.text = self.item!.text

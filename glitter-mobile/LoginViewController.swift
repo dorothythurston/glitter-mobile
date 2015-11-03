@@ -2,6 +2,7 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var switchSignUpSignInButton: UIButton!
@@ -11,9 +12,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let authenticationValidationString = "/session"
     let signUpString = "/users"
     let accessToken = Secret().value
-    var userParam =  "user"
-    var sessionParam = "session"
     var session: NSURLSession!
+    let signUpTextLabel = "Sign up"
+    let signInTextLabel = "Sign in"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         session = NSURLSession.sharedSession()
 
         // Do any additional setup after loading the view, typically from a nib.
-        self.usernameTextField.delegate = self;
-        usernameTextField.becomeFirstResponder()
+        self.emailTextField.delegate = self;
+        emailTextField.becomeFirstResponder()
+        usernameTextField.hidden = true
         continueButton.layer.cornerRadius = 10;
     }
     
@@ -37,39 +39,47 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK - Actions
     
     @IBAction func didPressLogin(sender: AnyObject) {
-        if usernameTextField.text!.isEmpty {
+        if emailTextField.text!.isEmpty {
             debugTextLabel.text = "Email Empty"
         } else if passwordTextField.text!.isEmpty {
             debugTextLabel.text = "Password Empty"
-        } else {
-            if isValidEmail(usernameTextField.text!) {
-                if continueButton.titleLabel!.text == "Sign in" {
-                    self.authenticate(authenticationValidationString, param: sessionParam)
-                } else {
-                    self.authenticate(signUpString, param: userParam)
-                }
+        } else if !isValidEmail(emailTextField.text!) {
+            debugTextLabel.text = "Not a valid email address"
+        } else if isSigningUp() {
+            if usernameTextField.text!.isEmpty {
+                debugTextLabel.text = "Username empty"
+            } else if usernameTextField.text!.characters.count >= 15 {
+                debugTextLabel.text = "Username must be less than 15 characters"
             } else {
-                debugTextLabel.text = "Not a valid email address"
+                self.authenticate(signUpString, params: ["user": ["username": usernameTextField!.text!, "email": emailTextField!.text!, "password": passwordTextField!.text!]])
             }
+        } else {
+            self.authenticate(authenticationValidationString, params: ["session": ["email": emailTextField!.text!, "password": passwordTextField!.text!]])
         }
+    }
+    
+    private func isSigningUp() -> Bool {
+        return continueButton.titleLabel!.text == signUpTextLabel
     }
     
     @IBAction func didPressSwitchSignUpSignIn(sender: AnyObject) {
-        if continueButton.titleLabel!.text == "Sign in" {
-            continueButton.setTitle("Sign up", forState: UIControlState.Normal)
-            switchSignUpSignInButton.setTitle("Sign in", forState: UIControlState.Normal)
+        if isSigningUp() {
+            continueButton.setTitle(signInTextLabel, forState: UIControlState.Normal)
+            switchSignUpSignInButton.setTitle(signUpTextLabel, forState: UIControlState.Normal)
+            usernameTextField.hidden = true
         } else {
-            continueButton.setTitle("Sign in", forState: UIControlState.Normal)
-            switchSignUpSignInButton.setTitle("Sign up", forState: UIControlState.Normal)
+            continueButton.setTitle(signUpTextLabel, forState: UIControlState.Normal)
+            switchSignUpSignInButton.setTitle(signInTextLabel, forState: UIControlState.Normal)
+            usernameTextField.hidden = false
         }
     }
     
-    func authenticate(requestString: String, param: String ) {
+    func authenticate(requestString: String, params: [String : AnyObject]) {
         // Build the URL
         let urlString = baseURLSecureString + requestString
         let url = NSURL(string: urlString)!
         var params: [String: AnyObject] {
-            return [param: ["email": usernameTextField!.text!, "password": passwordTextField!.text!]]
+            return params
         }
         
         // Configure the request
@@ -101,6 +111,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             }
                             if let email = current_user["email"] {
                                 self.setKeychainValue(email!, keyName: "email")
+                            }
+                            if let username = current_user["username"] {
+                                self.setKeychainValue(username!, keyName: "username")
                             }
                             if let api_token = current_user["api_token"] {
                                 self.setKeychainValue(api_token!, keyName: "api_token")
@@ -147,7 +160,9 @@ extension LoginViewController {
         if usernameTextField.isFirstResponder() {
             usernameTextField.resignFirstResponder()
         }
-        else {
+        else if emailTextField.isFirstResponder() {
+            emailTextField.resignFirstResponder()
+        } else {
             passwordTextField.resignFirstResponder()
         }
         return true
