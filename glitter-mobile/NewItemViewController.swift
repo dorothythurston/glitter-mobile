@@ -4,6 +4,7 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var debugTextLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var textCount: UILabel!
 
     let baseURLSecureString = "http://glitter-app.herokuapp.com/"
     let itemsString = "v1/items"
@@ -15,6 +16,7 @@ class NewItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textCount.text = "140"
         view.backgroundColor = UIColor.greyPurpleColor()
         
         session = NSURLSession.sharedSession()
@@ -33,6 +35,8 @@ class NewItemViewController: UIViewController {
     @IBAction func didPressSubmit() {
         if textField.text!.isEmpty || textField.text! == placeHolderText {
             debugTextLabel.text = "Scribe something :)"
+        } else if textField.text!.characters.count >= 140 {
+            debugTextLabel.text! = "Over 140 characters"
         } else {
             self.createItem(textField!.text!)
         }
@@ -118,4 +122,13 @@ extension NewItemViewController: UITextViewDelegate {
         }
     }
     
+    func textViewDidChange(textView: UITextView) {
+        let character_count = 140 - (textField.text!.characters.count)
+        if character_count <= 0 {
+            textCount.textColor = UIColor.redColor()
+        } else {
+            textCount.textColor = UIColor.whiteColor()
+        }
+        textCount.text = "\(character_count)"
+    }
 }
