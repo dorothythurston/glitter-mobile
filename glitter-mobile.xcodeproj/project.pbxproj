@@ -14,6 +14,7 @@
 		B84DFEE41BDA7B4400E2C5A6 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */; };
 		B84DFEEA1BDAA8A500E2C5A6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */; };
 		B84DFEEC1BDAC7F900E2C5A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */; };
+		B87609BE1BE959A600C201BF /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B87609BD1BE959A600C201BF /* UIScrollView+EmptyDataSet.m */; };
 		B88208621BE66B2100D1A657 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208611BE66B2100D1A657 /* Activity.swift */; };
 		B88208641BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208631BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift */; };
 		B88208661BE6749B00D1A657 /* ItemActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88208651BE6749B00D1A657 /* ItemActivityTableViewCell.swift */; };
@@ -42,6 +43,9 @@
 		B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B87609BB1BE959A600C201BF /* glitter-mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "glitter-mobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		B87609BC1BE959A600C201BF /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		B87609BD1BE959A600C201BF /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		B88208611BE66B2100D1A657 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B88208631BE6741F00D1A657 /* FollowingRelationshipActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingRelationshipActivityTableViewCell.swift; sourceTree = "<group>"; };
 		B88208651BE6749B00D1A657 /* ItemActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemActivityTableViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				B8BDF14F1BD59780002F6268 /* AppDelegate.swift */,
 				B84DFEE31BDA7B4400E2C5A6 /* NewItemViewController.swift */,
 				B8BDF1671BD5C819002F6268 /* LoginViewController.swift */,
+				B87609BC1BE959A600C201BF /* UIScrollView+EmptyDataSet.h */,
+				B87609BD1BE959A600C201BF /* UIScrollView+EmptyDataSet.m */,
 				B8FC316A1BE81FF700475BE0 /* ApplicationViewController.swift */,
 				B84DFED51BD97DEF00E2C5A6 /* KeychainWrapper.swift */,
 				B88208691BE68B1100D1A657 /* UserViewController.swift */,
@@ -117,6 +123,7 @@
 				B84DFEE91BDAA8A500E2C5A6 /* UIColor.swift */,
 				B84DFEEB1BDAC7F900E2C5A6 /* Main.storyboard */,
 				B8FC315A1BE7C86C00475BE0 /* UserItemTableViewCell.swift */,
+				B87609BB1BE959A600C201BF /* glitter-mobile-Bridging-Header.h */,
 				B8BCEE0D1BE3EA41001D990A /* Fabric.framework */,
 				B8BCEE0E1BE3EA41001D990A /* Crashlytics.framework */,
 				B8BDF1561BD59780002F6268 /* Assets.xcassets */,
@@ -153,6 +160,7 @@
 		B8BDF1441BD59780002F6268 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Dorothy Thurston";
 				TargetAttributes = {
@@ -226,6 +234,7 @@
 				B84DFED81BD98AC400E2C5A6 /* Item.swift in Sources */,
 				B8FC31531BE6EEF000475BE0 /* ActivitiesTableViewController.swift in Sources */,
 				B8FC31591BE701FB00475BE0 /* UserTableViewCell.swift in Sources */,
+				B87609BE1BE959A600C201BF /* UIScrollView+EmptyDataSet.m in Sources */,
 				B84DFED61BD97DEF00E2C5A6 /* KeychainWrapper.swift in Sources */,
 				B882086A1BE68B1100D1A657 /* UserViewController.swift in Sources */,
 				B88208621BE66B2100D1A657 /* Activity.swift in Sources */,
@@ -335,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/glitter-mobile",
@@ -343,6 +353,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dorothy.glitter-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "glitter-mobile/glitter-mobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/glitter-mobile",
@@ -358,6 +371,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dorothy.glitter-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "glitter-mobile/glitter-mobile-Bridging-Header.h";
 			};
 			name = Release;
 		};

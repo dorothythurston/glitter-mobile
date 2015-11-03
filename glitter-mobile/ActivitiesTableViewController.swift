@@ -14,6 +14,9 @@ class ActivitiesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activitiesTableView.emptyDataSetSource = self;
+        activitiesTableView.emptyDataSetDelegate = self;
+        
         activitiesTableView.estimatedRowHeight = 70.0
         activitiesTableView.rowHeight = UITableViewAutomaticDimension
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -155,5 +158,34 @@ class ActivitiesTableViewController: UITableViewController {
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         getActivities(api_token!)
+    }
+}
+
+extension ActivitiesTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "This is your dashboard"
+        
+        let attributedText = NSAttributedString(string: text, attributes:[NSFontAttributeName: UIFont.boldSystemFontOfSize(16.0),
+            NSForegroundColorAttributeName: UIColor.barelyPurpleColor()
+            ])
+        return attributedText
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "When you follow some users new activities will show up here"
+        
+        let attributedText = NSAttributedString(string: text, attributes:[NSFontAttributeName: UIFont.boldSystemFontOfSize(14.0),
+            NSForegroundColorAttributeName: UIColor.barelyPurpleColor()
+            ])
+        return attributedText
+    }
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        let imageName = "empty_activities"
+        return UIImage(named: imageName)
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
+        return activities.isEmpty
     }
 }
