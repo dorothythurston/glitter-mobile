@@ -73,6 +73,7 @@ class UsersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("userInfoCell", forIndexPath: indexPath) as! UserTableViewCell
         let user = users[indexPath.row]
         cell.userEmail.text = user.email
+        cell.userEmail.adjustsFontSizeToFitWidth = true
         return cell
     }
     

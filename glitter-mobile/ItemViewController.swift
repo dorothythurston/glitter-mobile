@@ -31,6 +31,7 @@ class ItemViewController: UIViewController {
         view.backgroundColor = UIColor.greyPurpleColor()
         bubbleView.layer.backgroundColor = UIColor.barelyPurpleColor().CGColor
         bubbleView.layer.cornerRadius = 15
+        authorName.adjustsFontSizeToFitWidth = true
     }
     
     private func formatDate(date: NSDate) -> String {

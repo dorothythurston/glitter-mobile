@@ -33,6 +33,7 @@ class UserViewController: UIViewController {
         
         itemsTableView.estimatedRowHeight = 70.0
         itemsTableView.rowHeight = UITableViewAutomaticDimension
+        username.adjustsFontSizeToFitWidth = true
     }
 
     override func viewWillAppear(animated: Bool) {
