@@ -31,6 +31,8 @@ class UserViewController: UIViewController {
             unfollowButton.hidden = true
         }
         
+        itemsTableView.emptyDataSetSource = self;
+        itemsTableView.emptyDataSetDelegate = self;
         itemsTableView.estimatedRowHeight = 70.0
         itemsTableView.rowHeight = UITableViewAutomaticDimension
         username.adjustsFontSizeToFitWidth = true
@@ -208,5 +210,34 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("ItemViewController") as! ItemViewController
         controller.item_id = items[indexPath.row].id
         self.navigationController!.pushViewController(controller, animated: true)
+    }
+}
+
+extension UserViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "This is your profile"
+        
+        let attributedText = NSAttributedString(string: text, attributes:[NSFontAttributeName: UIFont.boldSystemFontOfSize(16.0),
+            NSForegroundColorAttributeName: UIColor.barelyPurpleColor()
+            ])
+        return attributedText
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "When you post a new item it will show up here"
+        
+        let attributedText = NSAttributedString(string: text, attributes:[NSFontAttributeName: UIFont.boldSystemFontOfSize(14.0),
+            NSForegroundColorAttributeName: UIColor.barelyPurpleColor()
+            ])
+        return attributedText
+    }
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        let imageName = "empty_items"
+        return UIImage(named: imageName)
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView) -> Bool {
+        return items.isEmpty
     }
 }
