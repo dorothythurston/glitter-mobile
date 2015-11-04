@@ -9,7 +9,7 @@ class UsersTableViewController: UITableViewController {
     var users: [User] = []
     
     @IBOutlet weak var activitiesTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,23 @@ class UsersTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         session = NSURLSession.sharedSession()
+        
+        setActivityIndicator()
+        
         getUsers()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setActivityIndicator() {
+        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+        activityIndicator.center = CGPoint(x:self.view.bounds.size.width / 2, y:self.view.bounds.size.height / 2)
+        activityIndicator.backgroundColor = UIColor.greyPurpleColor()
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
     }
     
     func getUsers() {
@@ -53,6 +64,8 @@ class UsersTableViewController: UITableViewController {
                     self.users = User.usersFromResults(parsedResult)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.removeFromSuperview()
                     }
                 } catch {
                 }

@@ -10,7 +10,7 @@ class ActivitiesTableViewController: UITableViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var activitiesTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +27,24 @@ class ActivitiesTableViewController: UITableViewController {
         super.viewWillAppear(true)
         session = NSURLSession.sharedSession()
         
+        setActivityIndicator()
         api_token = KeychainWrapper.stringForKey("api_token")
         getActivities(api_token!)
         
         self.view.backgroundColor = UIColor.greyPurpleColor()
-        //activityIndicator.backgroundColor = UIColor.greyPurpleColor()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setActivityIndicator() {
+        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+        activityIndicator.center = CGPoint(x:self.view.bounds.size.width / 2, y:self.view.bounds.size.height / 2)
+        activityIndicator.backgroundColor = UIColor.greyPurpleColor()
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
     }
     
     func getActivities(api_token: String) {
@@ -65,8 +73,9 @@ class ActivitiesTableViewController: UITableViewController {
                     self.activities = Activity.activitiesFromResults(parsedResult)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.activitiesTableView.reloadData()
-                        //self.activityIndicator.stopAnimating()
                         self.refreshControl!.endRefreshing()
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.removeFromSuperview()
                     }
                 } catch {}
             }
