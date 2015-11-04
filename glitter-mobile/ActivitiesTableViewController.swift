@@ -110,17 +110,16 @@ class ActivitiesTableViewController: UITableViewController {
         if activities[indexPath.row].type == "FollowingRelationshipActivity" {
             let cell = tableView.dequeueReusableCellWithIdentifier("followingRelationshipActivityCell", forIndexPath: indexPath) as! FollowingRelationshipActivityTableViewCell
             let activity = activities[indexPath.row]
-            
+    
             cell.actorName.setTitle(formatActorName(activity.actor_username), forState: UIControlState.Normal)
             cell.activityText.text = "followed a user"
             cell.createdAt.text = formatDate(activity.created_at)
             cell.bubbleView.layer.cornerRadius = 15
-            
             return cell
         } else if activities[indexPath.row].type == "ItemActivity" {
             let cell = tableView.dequeueReusableCellWithIdentifier("itemActivityCell", forIndexPath: indexPath) as! ItemActivityTableViewCell
             let activity = activities[indexPath.row]
-            
+ 
             cell.actorName.setTitle(formatActorName(activity.actor_username), forState: UIControlState.Normal)
             cell.bubbleView.layer.cornerRadius = 15
             cell.createdAt.text = formatDate(activity.created_at)
@@ -137,7 +136,7 @@ class ActivitiesTableViewController: UITableViewController {
     }
     
     func formatActorName(username: String) -> String {
-        if defaults.stringForKey("username") == username {
+        if defaults.stringForKey("username")! == username {
             return "you"
         } else {
             return username

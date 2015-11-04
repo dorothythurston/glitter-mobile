@@ -111,7 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 self.setKeychainValue(email!, keyName: "email")
                             }
                             if let username = current_user["username"] {
-                                self.defaults.setObject("\(username)", forKey: "username")
+                                self.defaults.setObject(username!, forKey: "username")
                             }
                             if let api_token = current_user["api_token"] {
                                 self.setKeychainValue(api_token!, keyName: "api_token")
