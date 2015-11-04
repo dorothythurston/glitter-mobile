@@ -7,6 +7,7 @@ class ActivitiesTableViewController: UITableViewController {
     let activitiesString = "v1/activities"
     var activities: [Activity] = []
     var api_token: String?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var activitiesTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -77,7 +78,7 @@ class ActivitiesTableViewController: UITableViewController {
     
     @IBAction func logOut() {
         KeychainWrapper.removeObjectForKey("id")
-        KeychainWrapper.removeObjectForKey("username")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("username")
         KeychainWrapper.removeObjectForKey("api_token")
         KeychainWrapper.removeObjectForKey("email")
         navigateToLogin()
@@ -127,7 +128,7 @@ class ActivitiesTableViewController: UITableViewController {
     }
     
     func formatActorName(username: String) -> String {
-        if KeychainWrapper.stringForKey("username") == username {
+        if defaults.stringForKey("username") == username {
             return "you"
         } else {
             return username

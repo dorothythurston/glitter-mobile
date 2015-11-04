@@ -15,13 +15,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var session: NSURLSession!
     let signUpTextLabel = "Sign up"
     let signInTextLabel = "Sign in"
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: write a better way of checking for current user
-        if let _ = KeychainWrapper.stringForKey("api_token") {
-            completeLogin()
-        }
+
         session = NSURLSession.sharedSession()
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -113,7 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 self.setKeychainValue(email!, keyName: "email")
                             }
                             if let username = current_user["username"] {
-                                self.setKeychainValue(username!, keyName: "username")
+                                self.defaults.setObject("\(username)", forKey: "username")
                             }
                             if let api_token = current_user["api_token"] {
                                 self.setKeychainValue(api_token!, keyName: "api_token")
@@ -135,7 +133,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
             self.debugTextLabel.text = ""
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(false, completion: nil)
             let viewController = self.storyboard?.instantiateInitialViewController()
             self.presentViewController(viewController!, animated: true, completion: nil)
         })

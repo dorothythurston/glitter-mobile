@@ -2,6 +2,7 @@ import UIKit
 
 class ApplicationViewController: UIViewController {
     var activeViewController: UIViewController?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -9,7 +10,7 @@ class ApplicationViewController: UIViewController {
     }
     
     private var initialViewController: UIViewController {
-        if KeychainWrapper.hasValueForKey("api_token") {
+        if let _ = defaults.stringForKey("username") {
             return mainViewController
         } else {
             return authenticationViewController
