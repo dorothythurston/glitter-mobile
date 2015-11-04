@@ -101,7 +101,7 @@ class ActivitiesTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("followingRelationshipActivityCell", forIndexPath: indexPath) as! FollowingRelationshipActivityTableViewCell
             let activity = activities[indexPath.row]
             
-            cell.actorName.setTitle(activity.actor_username, forState: UIControlState.Normal)
+            cell.actorName.setTitle(formatActorName(activity.actor_username), forState: UIControlState.Normal)
             cell.activityText.text = "followed a user"
             cell.createdAt.text = formatDate(activity.created_at)
             cell.bubbleView.layer.cornerRadius = 15
@@ -111,7 +111,7 @@ class ActivitiesTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("itemActivityCell", forIndexPath: indexPath) as! ItemActivityTableViewCell
             let activity = activities[indexPath.row]
             
-            cell.actorName.setTitle(activity.actor_username, forState: UIControlState.Normal)
+            cell.actorName.setTitle(formatActorName(activity.actor_username), forState: UIControlState.Normal)
             cell.bubbleView.layer.cornerRadius = 15
             cell.createdAt.text = formatDate(activity.created_at)
             return cell
@@ -119,10 +119,18 @@ class ActivitiesTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("glitterActivityCell", forIndexPath: indexPath) as! GlitterActivityTableViewCell
             let activity = activities[indexPath.row]
             
-            cell.actorName.setTitle(activity.actor_username, forState: UIControlState.Normal)
+            cell.actorName.setTitle(formatActorName(activity.actor_username), forState: UIControlState.Normal)
             cell.bubbleView.layer.cornerRadius = 15
             cell.createdAt.text = formatDate(activity.created_at)
             return cell
+        }
+    }
+    
+    func formatActorName(username: String) -> String {
+        if KeychainWrapper.stringForKey("username") == username {
+            return "you"
+        } else {
+            return username
         }
     }
     
