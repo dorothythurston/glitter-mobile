@@ -1,6 +1,7 @@
 import UIKit
 
-class UserViewController: UIViewController {
+
+class UserProfileViewController: UIViewController {
     let baseURLSecureString = "http://glitter-app.herokuapp.com/"
     let usersString = "v1/users"
     let followString = "/follow"
@@ -9,12 +10,9 @@ class UserViewController: UIViewController {
     let api_token = KeychainWrapper.stringForKey("api_token")
     var session: NSURLSession!
     var user_id: Int?
-    var current_user_id: Int!
     var user: User?
     var items: [Item] = []
     
-    @IBOutlet weak var followButton: UIButton!
-    @IBOutlet weak var unfollowButton: UIButton!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var userFollowerCount: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -22,13 +20,8 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        current_user_id =  Int(KeychainWrapper.stringForKey("id")!)
-        
-        if user_id == current_user_id {
-            followButton.hidden = true
-            unfollowButton.hidden = true
-        }
+    
+        user_id =  Int(KeychainWrapper.stringForKey("id")!)
         
         itemsTableView.emptyDataSetSource = self;
         itemsTableView.emptyDataSetDelegate = self;
@@ -36,7 +29,7 @@ class UserViewController: UIViewController {
         itemsTableView.rowHeight = UITableViewAutomaticDimension
         username.adjustsFontSizeToFitWidth = true
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         session = NSURLSession.sharedSession()
@@ -78,87 +71,8 @@ class UserViewController: UIViewController {
                             self.itemsTableView.reloadData()
                             self.username.text = self.user!.username
                             self.userFollowerCount.text = "\(self.user!.followers!.count)"
- 
-                            if self.user_id == self.current_user_id {
-                                self.followButton.hidden = true
-                                self.unfollowButton.hidden = true
-                            } else if self.user!.followers!.contains(self.current_user_id!) {
-                                self.followButton.hidden = true
-                                self.unfollowButton.hidden = false
-                            }
+                            
                             self.activityIndicator.stopAnimating()
-                        }
-                    } 
-                } catch {
-                }
-            }
-        }
-        task.resume()
-    }
-    
-    @IBAction func follow() {
-        // Build the URL
-        let urlString = baseURLSecureString + usersString + "/\(user_id!)" + followString
-        let url = NSURL(string: urlString)!
-        var params: [String: AnyObject] {
-            return ["user":["id": user_id!]]
-        }
-        
-        // Configure the request
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.setValue(accessToken, forHTTPHeaderField: "X-ACCESS-TOKEN")
-        request.setValue(api_token, forHTTPHeaderField: "X-API-TOKEN")
-        
-        // Make the request
-        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
-            if let error = downloadError {
-                print("Could not complete the request \(error)")
-            } else {
-                // Parse the data
-                do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                    // Use the data
-                    if let followers = parsedResult["followers"] as? Int {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.unfollowButton.hidden = false
-                            self.followButton.hidden = true
-                            self.userFollowerCount.text = "\(followers)"
-                        }
-                    }
-                } catch {
-                }
-            }
-        }
-        task.resume()
-    }
-    
-    @IBAction func unfollow() {
-        // Build the URL
-        let urlString = baseURLSecureString + usersString + "/\(user_id!)" + unfollowString
-        let url = NSURL(string: urlString)!
-        var params: [String: AnyObject] {
-            return ["user":["id": user_id!]]
-        }
-        
-        // Configure the request
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "DELETE"
-        request.setValue(accessToken, forHTTPHeaderField: "X-ACCESS-TOKEN")
-        request.setValue(api_token, forHTTPHeaderField: "X-API-TOKEN")
-        
-        // Make the request
-        let task = session.dataTaskWithRequest(request) { data, response, downloadError in
-            if let error = downloadError {
-                print("Could not complete the request \(error)")
-            } else {
-                // Parse the data
-                do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
-                    // Use the data
-                    if let followers = parsedResult["followers"] as? Int {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.unfollowButton.hidden = true
-                            self.followButton.hidden = false
-                            self.userFollowerCount.text = "\(followers)"
                         }
                     }
                 } catch {
@@ -169,7 +83,7 @@ class UserViewController: UIViewController {
     }
 }
 
-extension UserViewController: UITableViewDataSource, UITableViewDelegate {
+extension UserProfileViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -186,7 +100,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         let cellReuseIdentifier = "itemCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as! UserItemTableViewCell!
         let item = items[indexPath.row]
-    
+        
         cell.textField?.text = item.text
         cell.createdAt?.text = formatDate(item.created_at)
         cell.textField?.font?.fontWithSize(19.0)
@@ -212,7 +126,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension UserViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+extension UserProfileViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let text = "This is your profile"
         
@@ -240,3 +154,4 @@ extension UserViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
         return items.isEmpty
     }
 }
+

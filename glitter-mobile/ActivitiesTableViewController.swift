@@ -156,7 +156,7 @@ class ActivitiesTableViewController: UITableViewController {
         if activities[indexPath.row].type == "FollowingRelationshipActivity" {
             let activity = activities[indexPath.row]
             let controller = self.storyboard!.instantiateViewControllerWithIdentifier("UserViewController") as! UserViewController
-            controller.user_id = activity.actor_id
+            controller.user_id = activity.target_id
             self.navigationController!.pushViewController(controller, animated: true)
         } else if activities[indexPath.row].type == "GlitterActivity" {
             let activity = activities[indexPath.row]
