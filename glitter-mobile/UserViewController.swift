@@ -214,7 +214,7 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension UserViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "This is your profile"
+        let text = "This user hasn't posted anything yet"
         
         let attributedText = NSAttributedString(string: text, attributes:[NSFontAttributeName: UIFont.boldSystemFontOfSize(16.0),
             NSForegroundColorAttributeName: UIColor.barelyPurpleColor()
@@ -223,7 +223,7 @@ extension UserViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "When you post a new item it will show up here"
+        let text = "Check back here again or follow them to stay updated"
         
         let attributedText = NSAttributedString(string: text, attributes:[NSFontAttributeName: UIFont.boldSystemFontOfSize(14.0),
             NSForegroundColorAttributeName: UIColor.barelyPurpleColor()
@@ -232,7 +232,7 @@ extension UserViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
     
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-        let imageName = "empty_items"
+        let imageName = "empty_user_items"
         return UIImage(named: imageName)
     }
     
