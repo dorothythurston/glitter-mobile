@@ -1074,20 +1074,20 @@
                                 <exclude reference="9aH-rX-mSI"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GkK-pZ-DZ0"/>
-                                <exclude reference="ING-OK-vCC"/>
-                                <exclude reference="cig-7A-zfb"/>
-                                <exclude reference="pha-8L-che"/>
-                                <exclude reference="XL7-P1-7h4"/>
-                                <exclude reference="i7V-33-b9f"/>
-                                <exclude reference="j2E-M7-YKx"/>
-                                <exclude reference="j3Z-kT-Avi"/>
                                 <exclude reference="0bM-fm-9QX"/>
                                 <exclude reference="DqR-s2-px5"/>
                                 <exclude reference="EE6-Z6-SR3"/>
                                 <exclude reference="EUd-YX-RID"/>
                                 <exclude reference="reT-Cr-dZz"/>
+                                <exclude reference="XL7-P1-7h4"/>
+                                <exclude reference="i7V-33-b9f"/>
+                                <exclude reference="j2E-M7-YKx"/>
+                                <exclude reference="j3Z-kT-Avi"/>
                                 <exclude reference="iDj-Zr-zGy"/>
+                                <exclude reference="GkK-pZ-DZ0"/>
+                                <exclude reference="ING-OK-vCC"/>
+                                <exclude reference="cig-7A-zfb"/>
+                                <exclude reference="pha-8L-che"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1098,20 +1098,20 @@
                                 <include reference="9aH-rX-mSI"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GkK-pZ-DZ0"/>
-                                <exclude reference="ING-OK-vCC"/>
-                                <include reference="cig-7A-zfb"/>
-                                <include reference="pha-8L-che"/>
-                                <include reference="XL7-P1-7h4"/>
-                                <exclude reference="i7V-33-b9f"/>
-                                <include reference="j2E-M7-YKx"/>
-                                <include reference="j3Z-kT-Avi"/>
                                 <include reference="0bM-fm-9QX"/>
                                 <include reference="DqR-s2-px5"/>
                                 <include reference="EE6-Z6-SR3"/>
                                 <include reference="EUd-YX-RID"/>
                                 <include reference="reT-Cr-dZz"/>
+                                <include reference="XL7-P1-7h4"/>
+                                <exclude reference="i7V-33-b9f"/>
+                                <include reference="j2E-M7-YKx"/>
+                                <include reference="j3Z-kT-Avi"/>
                                 <exclude reference="iDj-Zr-zGy"/>
+                                <include reference="GkK-pZ-DZ0"/>
+                                <exclude reference="ING-OK-vCC"/>
+                                <include reference="cig-7A-zfb"/>
+                                <include reference="pha-8L-che"/>
                             </mask>
                         </variation>
                     </view>
@@ -1598,7 +1598,7 @@
                                 <action selector="logOut" destination="hIx-pJ-Thm" id="5Ap-va-iuG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EFp-Zm-oDP">
+                        <barButtonItem key="rightBarButtonItem" image="plus" id="EFp-Zm-oDP">
                             <connections>
                                 <segue destination="GNg-ug-Q4i" kind="show" id="wPS-Lm-adU"/>
                             </connections>
@@ -1718,7 +1718,7 @@
         <scene sceneID="gZ6-9y-9TI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Bv-7B-GNu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="activities" id="odF-Wx-xI4"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_icon" id="odF-Wx-xI4"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="KUg-Gn-1gW">
@@ -1760,7 +1760,7 @@
         <scene sceneID="OOn-4P-Ep7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0rK-eH-1Ck" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Profile" image="me" id="aec-Ea-Wtt"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="profile_icon" id="aec-Ea-Wtt"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="K7b-ZA-627">
@@ -1779,9 +1779,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="activities" width="24" height="24"/>
-        <image name="me" width="24" height="24"/>
-        <image name="user" width="23" height="20"/>
+        <image name="home_icon" width="23" height="25"/>
+        <image name="plus" width="25" height="25"/>
+        <image name="profile_icon" width="25" height="22"/>
+        <image name="user" width="26" height="24"/>
     </resources>
     <color key="tintColor" red="0.34509803921568627" green="0.0" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
 </document>
