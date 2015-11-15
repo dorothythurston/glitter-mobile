@@ -61,7 +61,7 @@ class UsersTableViewController: UITableViewController {
                 // Parse the data
                 do { let parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
                     // Use the data
-                    self.users = User.usersFromResults(parsedResult)
+                    self.users = User.getOtherUsersFromResults(parsedResult)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                         self.activityIndicator.stopAnimating()

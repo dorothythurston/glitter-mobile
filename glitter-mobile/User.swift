@@ -15,11 +15,13 @@ struct User {
         }
     }
     
-    static func usersFromResults(json: [NSDictionary]) -> [User] {
+    static func getOtherUsersFromResults(json: [NSDictionary]) -> [User] {
         var users: [User] = []
         
         for object in json {
-            users.append(User(dictionary: object))
+            if String(object["username"]!) != NSUserDefaults.standardUserDefaults().stringForKey("username") {
+                users.append(User(dictionary: object))
+            }
         }
         
         return users
